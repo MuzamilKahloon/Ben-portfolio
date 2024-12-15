@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { blogPosts, blogCategories, blogNote, sortOptions } from "../constants";
 
 const Blog = () => {
+  const itemsPerPage = 5; // Number of blog posts per page
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Calculate total pages
+  const totalPages = Math.ceil(blogPosts.length / itemsPerPage);
+
+  // Paginate Blog Posts
+  const paginatedPosts = blogPosts.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  // Handle Pagination Click
+  const handlePageClick = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div>
       <Navbar />
@@ -46,7 +63,7 @@ const Blog = () => {
           </div>
 
           {/* Blog Posts */}
-          {blogPosts.map((post) => (
+          {paginatedPosts.map((post) => (
             <div
               key={post.id}
               className="flex flex-col gap-6 pb-6 border-b border-gray-200 md:flex-row"
@@ -80,6 +97,23 @@ const Blog = () => {
               </div>
             </div>
           ))}
+
+          {/* Pagination Buttons */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => handlePageClick(index + 1)}
+                className={`px-4 py-2 rounded ${
+                  currentPage === index + 1
+                    ? "bg-teal-500 text-white"
+                    : "bg-teal-700 text-white hover:bg-teal-600"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Sidebar (30%) */}

@@ -6,9 +6,10 @@ import { FaLinkedin, FaGithub } from "react-icons/fa"; // LinkedIn & GitHub Icon
 import { BsTwitter } from "react-icons/bs"; // Bluesky (alt) Icon
 import { SiOrcid, SiZotero, SiGooglescholar } from "react-icons/si"; // ORCID, Zotero, Scholar
 import Footer from "../components/Footer";
-
+import { ThemeProvider } from "../constants/ThemeContext";
 const Home = () => {
   return (
+    <ThemeProvider>
     <div>
       {/* Navbar */}
       <Navbar />
@@ -113,6 +114,7 @@ const Home = () => {
       </div>
       <Footer/>
     </div>
+    </ThemeProvider>
   );
 };
 
