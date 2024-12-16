@@ -1,25 +1,21 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import profile from "../../public/img/profile.jpg"; // Profile image
+import Footer from "../components/Footer";
 import { FiMail } from "react-icons/fi"; // Email Icon
 import { FaLinkedin, FaGithub } from "react-icons/fa"; // LinkedIn & GitHub Icons
 import { BsTwitter } from "react-icons/bs"; // Bluesky (alt) Icon
 import { SiOrcid, SiZotero, SiGooglescholar } from "react-icons/si"; // ORCID, Zotero, Scholar
-import Footer from "../components/Footer";
-import { ThemeProvider } from "../constants/ThemeContext";
+
 const Home = () => {
   return (
-    <ThemeProvider>
     <div>
-      {/* Navbar */}
-      <Navbar />
-
+     
       {/* Content Section */}
       <div className="flex flex-col items-center min-h-screen mt-10 bg-white">
         <div className="flex flex-col items-center justify-center px-4 mt-12 text-center">
           {/* Profile Image */}
           <img
-            src={profile}
+            src="/img/profile.jpg" // Use absolute path from 'public' folder
             alt="Ben Jarman"
             className="object-cover rounded-full shadow-lg h-60 w-60"
           />
@@ -54,9 +50,9 @@ const Home = () => {
 
         {/* Contact Icons Section */}
         <div className="flex flex-wrap justify-center gap-4 pt-6 mt-16 border-t border-gray-300">
-        {/* Email */}
+          {/* Email */}
           <a
-            href="mailto:someone@example.com"
+            href="mailto:example@example.com"
             className="flex items-center space-x-2 px-3 py-2 border border-gray-500 rounded-md text-gray-500 hover:text-[#18bc9c] hover:border-[#18bc9c] transition"
           >
             <FiMail size={16} />
@@ -112,9 +108,10 @@ const Home = () => {
           </a>
         </div>
       </div>
-      <Footer/>
+
+      {/* Footer */}
+      <Footer />
     </div>
-    </ThemeProvider>
   );
 };
 

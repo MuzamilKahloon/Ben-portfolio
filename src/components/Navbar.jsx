@@ -1,135 +1,139 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { FiRss, FiSearch } from "react-icons/fi";
 
-const Navbar = () => {
+const Navbar = ({ toggleTheme, darkMode }) => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
+  const [searchOpen, setSearchOpen] = useState(false);
 
   // Function to toggle the mobile drawer
   const toggleNavbar = () => {
     setMobileDrawerOpen(!mobileDrawerOpen);
   };
 
-  // Function to toggle the theme
-  const toggleTheme = () => {
-    const newMode = !darkMode;
-    setDarkMode(newMode);
-    localStorage.setItem("theme", newMode ? "dark" : "light");
-
-    // Apply the theme change to the entire document
-    document.documentElement.classList.toggle("dark", newMode);
+  // Function to toggle the search bar
+  const toggleSearch = () => {
+    setSearchOpen(!searchOpen);
   };
 
-  // Initial theme setup on component mount
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-      document.documentElement.classList.add("dark");
-      setDarkMode(true);
-    } else {
-      document.documentElement.classList.remove("dark");
-      setDarkMode(false);
-    }
-  }, []);
-
   return (
-    <nav className="w-full py-3 bg-[#113016] text-white dark:bg-black dark:text-white">
+    <nav className="relative w-full py-3 text-white bg-gray-800 dark:bg-black dark:text-white">
       <div className="container flex items-center justify-between px-6 mx-auto">
         {/* Logo */}
         <div className="text-2xl font-semibold tracking-tight">
-          Ben <span className="text-gray-400 dark:text-gray-400">Jarman</span>
+          Ben <span className="text-gray-400 dark:text-gray-500">Jarman</span>
         </div>
 
         {/* Navigation Links */}
         <ul className="hidden space-x-12 lg:flex">
-          <li>
-            <Link to="/" className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/blog" className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white">
-              Blog
-            </Link>
-          </li>
-          <li>
-            <Link to="/publications" className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white">
-              Publications
-            </Link>
-          </li>
-          <li>
-            <Link to="/cv" className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white">
-              CV
-            </Link>
-          </li>
+          {["Home", "About", "Blog", "Publications", "CV"].map((link) => (
+            <li key={link}>
+              <Link
+                to={`/${link.toLowerCase()}`}
+                className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white"
+              >
+                {link}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* Icons */}
-        <div className="hidden space-x-6 lg:flex">
-          <a href="#" className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white">
+        <div className="items-center hidden space-x-6 lg:flex">
+          <a
+            href="#"
+            aria-label="RSS Feed"
+            className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white"
+          >
             <FiRss size={20} />
           </a>
 
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className="text-gray-300 hover:text-[#18bc9c] dark:text-gray-400 dark:hover:text-white transition focus:outline-none"
             aria-label="Toggle Theme"
+            className="text-gray-300 transition hover:text-teal-500 dark:text-gray-400 dark:hover:text-teal-400 focus:outline-none"
           >
             {darkMode ? <Moon size={24} /> : <Sun size={24} />}
           </button>
 
-          <a href="#" className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white">
-            <FiSearch size={20} />
-          </a>
+          {/* Search Icon */}
+          <button
+            onClick={toggleSearch}
+            aria-label="Search"
+            className="text-gray-300 transition hover:text-white dark:text-gray-400 dark:hover:text-white focus:outline-none"
+          >
+            <FiSearch size={24} />
+          </button>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button onClick={toggleNavbar} className="text-gray-300 lg:hidden dark:text-gray-400">
+        <button
+          onClick={toggleNavbar}
+          aria-label="Toggle Mobile Menu"
+          className="text-gray-300 lg:hidden dark:text-gray-400"
+        >
           {mobileDrawerOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
+      {/* Search Bar */}
+      {searchOpen && (
+        <div className="absolute left-0 flex items-center w-full p-3 bg-white shadow-md top-full dark:bg-gray-900">
+          <FiSearch size={20} className="ml-3 text-gray-500 dark:text-gray-400" />
+          <input
+            type="text"
+            placeholder="Search..."
+            className="w-full p-2 text-gray-700 bg-transparent border-none dark:text-white focus:outline-none"
+          />
+          <button
+            onClick={toggleSearch}
+            className="mr-3 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+          >
+            Cancel
+          </button>
+        </div>
+      )}
+
       {/* Mobile Drawer */}
       {mobileDrawerOpen && (
-        <div className="flex flex-col items-center w-full p-6 bg-[#113016] dark:bg-black lg:hidden">
-          <ul className="space-y-6 text-gray-300 dark:text-gray-400">
-            <li>
-              <Link to="/" onClick={toggleNavbar} className="hover:text-white dark:hover:text-white">
-                Home
-              </Link>
-            </li>
-            {/* Other mobile menu items remain the same */}
+        <div className="flex flex-col items-center w-full px-6 py-4 bg-gray-800 dark:bg-black lg:hidden">
+          <ul className="w-full space-y-6 text-center text-gray-300 dark:text-gray-400">
+            {["Home", "About", "Blog", "Publications", "CV"].map((link) => (
+              <li key={link}>
+                <Link
+                  to={`/${link.toLowerCase()}`}
+                  onClick={toggleNavbar}
+                  className="block py-2 hover:text-white dark:hover:text-teal-400"
+                >
+                  {link}
+                </Link>
+              </li>
+            ))}
           </ul>
 
           {/* Mobile Icons */}
-          <div className="flex mt-6 space-x-6">
+          <div className="flex justify-center mt-6 space-x-6">
             <a href="#" className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white">
               <FiRss size={20} />
             </a>
 
             <button
               onClick={toggleTheme}
-              className="text-gray-300 hover:text-[#18bc9c] dark:text-gray-400 dark:hover:text-white transition focus:outline-none"
               aria-label="Toggle Theme"
+              className="text-gray-300 transition hover:text-teal-500 dark:text-gray-400 dark:hover:text-teal-400 focus:outline-none"
             >
               {darkMode ? <Moon size={24} /> : <Sun size={24} />}
             </button>
 
-            <a href="#" className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white">
+            <button
+              onClick={toggleSearch}
+              aria-label="Search"
+              className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white"
+            >
               <FiSearch size={20} />
-            </a>
+            </button>
           </div>
         </div>
       )}

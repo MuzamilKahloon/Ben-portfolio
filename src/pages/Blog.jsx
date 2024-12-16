@@ -6,12 +6,21 @@ import { blogPosts, blogCategories, blogNote, sortOptions } from "../constants";
 const Blog = () => {
   const itemsPerPage = 5; // Number of blog posts per page
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy] = useState("latest"); // State for sorting option
+
+  // Sort Blog Posts
+  const sortedPosts = [...blogPosts].sort((a, b) => {
+    if (sortBy === "latest") return new Date(b.date) - new Date(a.date); // Latest
+    if (sortBy === "oldest") return new Date(a.date) - new Date(b.date); // Oldest
+    if (sortBy === "popular") return b.views - a.views; // Most Popular (views)
+    return 0;
+  });
 
   // Calculate total pages
-  const totalPages = Math.ceil(blogPosts.length / itemsPerPage);
+  const totalPages = Math.ceil(sortedPosts.length / itemsPerPage);
 
   // Paginate Blog Posts
-  const paginatedPosts = blogPosts.slice(
+  const paginatedPosts = sortedPosts.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -23,7 +32,7 @@ const Blog = () => {
 
   return (
     <div>
-      <Navbar />
+      
 
       {/* Blog Container */}
       <div className="container flex flex-col gap-8 px-8 py-8 mx-auto md:flex-row">
@@ -53,12 +62,14 @@ const Blog = () => {
           {/* Sort Dropdown */}
           <div className="flex items-center space-x-4">
             <label className="font-semibold text-gray-700">Order By</label>
-            <select className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-teal-300">
-              {sortOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-teal-300"
+            >
+              <option value="latest">Latest</option>
+              <option value="oldest">Oldest</option>
+              <option value="popular">Most Popular</option>
             </select>
           </div>
 

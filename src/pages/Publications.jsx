@@ -5,18 +5,26 @@ import {
   publications,
   publicationCategories,
   publicationNote,
-  sortOptions,
 } from "../constants";
 
 const Publications = () => {
   const itemsPerPage = 5; // Number of items per page
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy] = useState("latest"); // State for sorting option
+
+  // Sorting Logic
+  const sortedPublications = [...publications].sort((a, b) => {
+    if (sortBy === "latest") return new Date(b.date) - new Date(a.date); // Latest first
+    if (sortBy === "oldest") return new Date(a.date) - new Date(b.date); // Oldest first
+    if (sortBy === "popular") return b.views - a.views; // Most Popular (views property)
+    return 0;
+  });
 
   // Calculate total pages
-  const totalPages = Math.ceil(publications.length / itemsPerPage);
+  const totalPages = Math.ceil(sortedPublications.length / itemsPerPage);
 
   // Paginate Publications
-  const paginatedPublications = publications.slice(
+  const paginatedPublications = sortedPublications.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -28,7 +36,7 @@ const Publications = () => {
 
   return (
     <div>
-      <Navbar />
+      
 
       {/* Publications Container */}
       <div className="container flex flex-col gap-8 px-8 py-8 mx-auto md:flex-row">
@@ -48,6 +56,20 @@ const Publications = () => {
             <p className="leading-relaxed text-gray-600">
               {publicationNote.description}
             </p>
+          </div>
+
+          {/* Sorting Dropdown */}
+          <div className="flex items-center mb-4 space-x-4">
+            <label className="font-semibold text-gray-700">Sort By:</label>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-teal-300"
+            >
+              <option value="latest">Latest</option>
+              <option value="oldest">Oldest</option>
+              <option value="popular">Most Popular</option>
+            </select>
           </div>
 
           {/* Publications Table */}

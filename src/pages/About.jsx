@@ -10,8 +10,7 @@ import { SiOrcid, SiZotero, SiGooglescholar } from "react-icons/si";
 const About = () => {
   return (
     <div>
-      {/* Navbar */}
-      <Navbar />
+      
 
       {/* About Section */}
       <div className="container px-4 py-12 mx-auto lg:flex lg:gap-12 lg:items-start">
