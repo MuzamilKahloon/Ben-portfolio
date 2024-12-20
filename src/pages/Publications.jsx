@@ -6,8 +6,10 @@ import {
   publicationCategories,
   publicationNote,
 } from "../constants";
+import { useTheme } from "../constants/ThemeContext"; // Import useTheme hook
 
 const Publications = () => {
+  const { theme } = useTheme(); // Access theme from context
   const itemsPerPage = 5; // Number of items per page
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState("latest"); // State for sorting option
@@ -35,36 +37,42 @@ const Publications = () => {
   };
 
   return (
-    <div>
-      
+    <div
+      className={`${
+        theme === "dark" ? "bg-gray-900 text-gray-200" : "bg-white text-gray-800"
+      }`}
+    >
+  
 
       {/* Publications Container */}
       <div className="container flex flex-col gap-8 px-8 py-8 mx-auto md:flex-row">
         {/* Main Content (70%) */}
         <div className="w-full md:w-2/3">
           {/* Publications Title */}
-          <h1 className="mb-6 text-4xl font-bold text-gray-800">Publications</h1>
+          <h1 className="mb-6 text-4xl font-bold">Publications</h1>
 
           {/* Note Section */}
-          <div className="p-6 mb-6 border border-gray-200 rounded-lg shadow-md bg-gray-50">
+          <div
+            className={`p-6 mb-6 border rounded-lg shadow-md ${
+              theme === "dark" ? "bg-gray-800 border-gray-700" : "bg-gray-50 border-gray-200"
+            }`}
+          >
             <div className="flex items-start gap-3 mb-2">
               <span className="text-xl font-bold text-blue-600">ℹ️</span>
-              <strong className="text-lg text-gray-800">
-                {publicationNote.title}
-              </strong>
+              <strong className="text-lg">{publicationNote.title}</strong>
             </div>
-            <p className="leading-relaxed text-gray-600">
-              {publicationNote.description}
-            </p>
+            <p className="leading-relaxed">{publicationNote.description}</p>
           </div>
 
           {/* Sorting Dropdown */}
           <div className="flex items-center mb-4 space-x-4">
-            <label className="font-semibold text-gray-700">Sort By:</label>
+            <label className="font-semibold">Sort By:</label>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-teal-300"
+              className={`px-3 py-2 border rounded-md shadow-sm ${
+                theme === "dark" ? "bg-gray-700 text-gray-200 border-gray-600" : "border-gray-300"
+              } focus:ring focus:ring-teal-300`}
             >
               <option value="latest">Latest</option>
               <option value="oldest">Oldest</option>
@@ -74,9 +82,13 @@ const Publications = () => {
 
           {/* Publications Table */}
           <div className="overflow-x-auto">
-            <table className="min-w-full border border-collapse table-auto">
+            <table
+              className={`min-w-full border border-collapse table-auto ${
+                theme === "dark" ? "border-gray-700" : "border-gray-200"
+              }`}
+            >
               <thead>
-                <tr className="bg-gray-200">
+                <tr className={theme === "dark" ? "bg-gray-800" : "bg-gray-200"}>
                   <th className="p-2 text-left border">Date</th>
                   <th className="p-2 text-left border">Title</th>
                   <th className="p-2 text-left border">Subtitle</th>
@@ -86,7 +98,12 @@ const Publications = () => {
               </thead>
               <tbody>
                 {paginatedPublications.map((pub) => (
-                  <tr key={pub.id} className="hover:bg-gray-100">
+                  <tr
+                    key={pub.id}
+                    className={`hover:${
+                      theme === "dark" ? "bg-gray-700" : "bg-gray-100"
+                    }`}
+                  >
                     <td className="p-2 border">{pub.date}</td>
                     <td className="p-2 border">
                       <a
@@ -114,7 +131,11 @@ const Publications = () => {
                 className={`px-4 py-2 rounded ${
                   currentPage === index + 1
                     ? "bg-teal-500 text-white"
-                    : "bg-teal-700 text-white hover:bg-teal-600"
+                    : `${
+                        theme === "dark"
+                          ? "bg-gray-700 text-gray-200 hover:bg-gray-600"
+                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                      }`
                 }`}
               >
                 {index + 1}
@@ -126,15 +147,17 @@ const Publications = () => {
         {/* Sidebar (30%) */}
         <aside className="w-full md:w-1/3">
           {/* Categories Section */}
-          <div className="p-4 border border-gray-200 rounded-lg shadow-sm bg-gray-50">
-            <h3 className="mb-4 text-lg font-semibold text-gray-800">
-              Categories
-            </h3>
+          <div
+            className={`p-4 border rounded-lg shadow-sm ${
+              theme === "dark" ? "bg-gray-800 border-gray-700" : "bg-gray-50 border-gray-200"
+            }`}
+          >
+            <h3 className="mb-4 text-lg font-semibold">Categories</h3>
             <ul className="space-y-2">
               {publicationCategories.map((category) => (
                 <li
                   key={category.id}
-                  className="text-gray-600 cursor-pointer hover:text-gray-800"
+                  className="cursor-pointer hover:text-teal-500"
                 >
                   {category.name} ({category.count})
                 </li>
@@ -144,6 +167,7 @@ const Publications = () => {
         </aside>
       </div>
 
+      {/* Footer */}
       <Footer />
     </div>
   );

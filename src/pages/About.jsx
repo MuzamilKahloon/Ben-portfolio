@@ -6,10 +6,13 @@ import { FiMail } from "react-icons/fi";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import { SiOrcid, SiZotero, SiGooglescholar } from "react-icons/si";
+import { useTheme } from "../constants/ThemeContext"; // Import useTheme hook
 
 const About = () => {
+  const { theme } = useTheme(); // Access the theme from context
+
   return (
-    <div>
+    <div className={`${theme === "dark" ? "bg-gray-900 text-gray-200" : "bg-white text-gray-800"}`}>
       
 
       {/* About Section */}
@@ -24,60 +27,56 @@ const About = () => {
           />
 
           {/* Name and Role */}
-          <h1 className="mt-6 text-3xl font-bold text-center text-gray-800">
-            Ben Jarman
-          </h1>
-          <h2 className="text-lg text-center text-gray-600">
-            About me and my work
-          </h2>
+          <h1 className="mt-6 text-3xl font-bold text-center">Ben Jarman</h1>
+          <h2 className="text-lg text-center">About me and my work</h2>
 
           {/* Social Media Icons */}
           <div className="flex flex-wrap justify-center gap-3 mt-6">
             <a
               href="mailto:example@example.com"
-              className="flex items-center px-3 py-2 space-x-1 text-gray-600 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
+              className="flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <FiMail size={18} />
               <span>Email</span>
             </a>
             <a
               href="https://linkedin.com"
-              className="flex items-center px-3 py-2 space-x-1 text-gray-600 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
+              className="flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <FaLinkedin size={18} />
               <span>LinkedIn</span>
             </a>
             <a
               href="https://twitter.com"
-              className="flex items-center px-3 py-2 space-x-1 text-gray-600 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
+              className="flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <BsTwitter size={18} />
               <span>Bluesky</span>
             </a>
             <a
               href="https://orcid.org"
-              className="flex items-center px-3 py-2 space-x-1 text-gray-600 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
+              className="flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <SiOrcid size={18} />
               <span>ORCiD</span>
             </a>
             <a
               href="https://zotero.org"
-              className="flex items-center px-3 py-2 space-x-1 text-gray-600 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
+              className="flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <SiZotero size={18} />
               <span>Zotero</span>
             </a>
             <a
               href="https://scholar.google.com"
-              className="flex items-center px-3 py-2 space-x-1 text-gray-600 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
+              className="flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <SiGooglescholar size={18} />
               <span>Google Scholar</span>
             </a>
             <a
               href="https://github.com"
-              className="flex items-center px-3 py-2 space-x-1 text-gray-600 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
+              className="flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <FaGithub size={18} />
               <span>GitHub</span>
@@ -87,7 +86,7 @@ const About = () => {
 
         {/* Right Section: Text Content */}
         <div className="mt-8 lg:w-2/3 lg:mt-0">
-          <p className="leading-relaxed text-gray-700">
+          <p className="leading-relaxed">
             I am a Research Fellow at the University of Southampton, where I
             joined the{" "}
             <a href="#" className="text-teal-500 underline">
@@ -98,7 +97,7 @@ const About = () => {
             system, and for criminal justice in the UK more generally.
           </p>
 
-          <p className="mt-4 leading-relaxed text-gray-700">
+          <p className="mt-4 leading-relaxed">
             I am interested by how people cope, and survive, when they are
             facing lengthy or lifelong punishment after a serious conviction.
             Partly, this is a question relating to the practical and emotional
@@ -110,7 +109,7 @@ const About = () => {
             to change.
           </p>
 
-          <p className="mt-4 leading-relaxed text-gray-700">
+          <p className="mt-4 leading-relaxed">
             My doctorate, completed in 2024 at the Cambridge{" "}
             <a href="#" className="text-teal-500 underline">
               Prisons Research Centre
@@ -127,14 +126,14 @@ const About = () => {
             mandatory life sentences for murder.
           </p>
 
-          <p className="mt-4 leading-relaxed text-gray-700">
+          <p className="mt-4 leading-relaxed">
             Building on this foundation, my current work at Southampton explores
             the purpose and future of parole in England & Wales. It explores the
             intersections between the sociology of prisons and punishment, moral
             philosophy (specifically, penal theory), and criminal law.
           </p>
 
-          <p className="mt-4 leading-relaxed text-gray-700">
+          <p className="mt-4 leading-relaxed">
             I welcome contact and am interested in building networks at
             Southampton and beyond. If you find what I’m doing interesting and
             want to make contact, please get in touch and introduce yourself.

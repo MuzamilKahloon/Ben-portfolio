@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { FiRss, FiSearch } from "react-icons/fi";
+import { useTheme } from "../constants/ThemeContext";
 
-const Navbar = ({ toggleTheme, darkMode }) => {
+const Navbar = () => {
+  const { theme, toggleTheme } = useTheme(); // Access theme and toggle function from ThemeContext
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
@@ -18,8 +20,11 @@ const Navbar = ({ toggleTheme, darkMode }) => {
   };
 
   return (
-    <nav className="relative w-full py-3 text-white bg-gray-800 dark:bg-black dark:text-white">
-      <div className="container flex items-center justify-between px-6 mx-auto">
+    <nav
+      className="relative w-full py-3 mt-0 text-white"
+      style={{ backgroundColor: "#113016" }}
+    >
+      <div className="flex items-center justify-between px-6 mx-auto ">
         {/* Logo */}
         <div className="text-2xl font-semibold tracking-tight">
           Ben <span className="text-gray-400 dark:text-gray-500">Jarman</span>
@@ -41,6 +46,7 @@ const Navbar = ({ toggleTheme, darkMode }) => {
 
         {/* Icons */}
         <div className="items-center hidden space-x-6 lg:flex">
+          {/* RSS Feed Icon */}
           <a
             href="#"
             aria-label="RSS Feed"
@@ -55,7 +61,7 @@ const Navbar = ({ toggleTheme, darkMode }) => {
             aria-label="Toggle Theme"
             className="text-gray-300 transition hover:text-teal-500 dark:text-gray-400 dark:hover:text-teal-400 focus:outline-none"
           >
-            {darkMode ? <Moon size={24} /> : <Sun size={24} />}
+            {theme === "light" ? <Sun size={24} /> : <Moon size={24} />}
           </button>
 
           {/* Search Icon */}
@@ -115,18 +121,24 @@ const Navbar = ({ toggleTheme, darkMode }) => {
 
           {/* Mobile Icons */}
           <div className="flex justify-center mt-6 space-x-6">
-            <a href="#" className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white">
+            {/* RSS Feed Icon */}
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white"
+            >
               <FiRss size={20} />
             </a>
 
+            {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
               aria-label="Toggle Theme"
               className="text-gray-300 transition hover:text-teal-500 dark:text-gray-400 dark:hover:text-teal-400 focus:outline-none"
             >
-              {darkMode ? <Moon size={24} /> : <Sun size={24} />}
+              {theme === "light" ? <Sun size={24} /> : <Moon size={24} />}
             </button>
 
+            {/* Search Icon */}
             <button
               onClick={toggleSearch}
               aria-label="Search"

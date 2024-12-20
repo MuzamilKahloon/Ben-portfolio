@@ -1,49 +1,65 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa"; // GitHub icon
 import { FiAlertCircle } from "react-icons/fi"; // Report icon
+import { useTheme } from "../constants/ThemeContext"; // Import useTheme hook
 
 const Footer = () => {
+  const { theme } = useTheme(); // Access the current theme
+
   return (
-    <footer className="py-4 mt-10 text-sm text-gray-600 border-t border-gray-300">
-      <div className="container flex flex-wrap items-center justify-between px-4 mx-auto">
-        {/* Left Content */}
-        <div>
+    <footer
+      className={`py-6 mt-10 border-t ${
+        theme === "dark"
+          ? "bg-gray-800 border-gray-700 text-gray-400"
+          : "bg-gray-100 border-gray-300 text-gray-600"
+      }`}
+    >
+      <div className="container flex flex-col items-center justify-center gap-6 px-4 mx-auto sm:flex-row sm:justify-between">
+        {/* Copyright Text */}
+        <div className="text-center sm:text-left">
           <p>
             Site content © 2003-2024 by Ben Jarman. All rights reserved unless
             otherwise noted.
           </p>
         </div>
 
-        {/* Center Content */}
-        <div className="flex items-center space-x-6 ">
+        {/* Links Section */}
+        <div className="flex space-x-6">
           <a
             href="https://github.com"
-            className="flex items-center space-x-1 hover:text-[#18bc9c] transition"
+            className={`flex items-center space-x-2 hover:text-teal-500 transition ${
+              theme === "dark" ? "text-gray-400" : "text-gray-600"
+            }`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithub size={16} />
+            <FaGithub size={18} />
             <span>View source</span>
           </a>
           <a
             href="https://example.com/report"
-            className="flex items-center space-x-1 hover:text-[#18bc9c] transition"
+            className={`flex items-center space-x-2 hover:text-teal-500 transition ${
+              theme === "dark" ? "text-gray-400" : "text-gray-600"
+            }`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FiAlertCircle size={16} />
+            <FiAlertCircle size={18} />
             <span>Report an issue</span>
           </a>
         </div>
 
-        {/* Right Content */}
-        <div className="text-gray-600 hover:text-[#18bc9c] transition">
+        {/* Powered By Section */}
+        <div className="text-center sm:text-right">
           <a
             href="https://quarto.org"
+            className={`hover:text-teal-500 transition underline ${
+              theme === "dark" ? "text-gray-400" : "text-gray-600"
+            }`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Powered by <span className="underline">Quarto</span>
+            Powered by Quarto
           </a>
         </div>
       </div>

@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body[data-theme='light'] {
+    background-color: white;
+    
+  }
+  
+  body[data-theme='dark'] {
+  
+    color: white;
+  }
+  
