@@ -453,6 +453,52 @@ export const publications = [
       authors: "Ben Jarman",
       link: "#",
     },
+    {
+      id: 24,
+      date: "2023",
+      title: "Police brutality and the use of force under the human rights microscope",
+      subtitle: "A comparative human rights overview of police force in the U.S. and Brazil.",
+      keywords: "Police brutality, human rights, U.S., Brazil",
+      authors: "Paolo Sartorio",
+      link: "#",
+    },
+    {
+      id: 25,
+      date: "2022",
+      title: "¿Los derechos humanos y la insignia?",
+      subtitle: "Examines the paradox between police brutality and human rights in the U.S. and Brazil.",
+      keywords: "Police, brutality, human rights, U.S., Brazil",
+      authors: "Paolo Sartorio",
+      link: "#",
+    },
+    {
+      id: 26,
+      date: "2020",
+      title: "Human rights behind bars. Paying a debt that keeps on growing",
+      subtitle: "Explores human rights violations within prison systems and long-lasting consequences.",
+      keywords: "Human rights, prisons, punishment",
+      authors: "Paolo Sartorio",
+      link: "#",
+    },
+    {
+      id: 27,
+      date: "2018",
+      title: "Return from darkness, a road without a path",
+      subtitle: "Lessons on humane punishment from the Nordic countries' rehabilitation-focused systems.",
+      keywords: "Nordic countries, rehabilitation, punishment",
+      authors: "Paolo Sartorio",
+      link: "#",
+    },
+    {
+      id: 28,
+      date: "2017",
+      title: "Qandeel Baloch’s sacrifice – A review on Pakistan’s anti-honor crime bill",
+      subtitle: "Reviews Pakistan’s legal reforms addressing honor crimes after Qandeel Baloch’s death.",
+      keywords: "Honor crime, Pakistan, legal reform",
+      authors: "Paolo Sartorio",
+      link: "#",
+    },
+    
   ];
   
 

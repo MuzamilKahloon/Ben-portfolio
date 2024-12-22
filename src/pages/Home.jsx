@@ -30,27 +30,19 @@ const Home = () => {
             {/* Welcome Text */}
             <h1 className="mt-6 text-4xl font-bold">Welcome</h1>
             <p className="mt-2 text-lg font-semibold">
-              Ben Jarman’s homepage
+              Experience Matters: A Commitment to Justice and Human Rights
             </p>
 
             {/* Description */}
             <div className="max-w-3xl mt-6 text-lg font-normal leading-relaxed">
               <p>
-                I am a criminologist and prison researcher, currently working on
-                parole and prison release mechanisms.
+                With over 15 years of experience as a criminal defense attorney, 5 years as a law professor, and a growing focus on comparative criminal law and human rights, I bring a unique perspective to the pursuit of justice. My professional journey has shaped my research, which seeks to bridge the gap between theory and practice, creating impactful solutions for real-world legal challenges.
               </p>
               <p className="mt-4">
-                My work is ultimately driven by curiosity: about how people
-                survive and (sometimes) find positive, redemptive experiences,
-                when they are forced by a serious conviction to spend a large
-                part of their lives in prison. To me, this is a question of
-                enduring human interest, relevant beyond the fields of
-                criminology and criminal justice policy.
+                I believe that justice is not an abstract concept—it is a vital force that affects every individual, every community, and every nation. As Martin Luther King Jr. famously wrote, "Injustice anywhere is a threat to justice everywhere." This guiding principle fuels my work and my commitment to advocating for human rights, both in the courtroom and through my academic research.
               </p>
               <p className="mt-4">
-                Click on the ‘About’ link above to read more about my work. Use
-                the links below to make contact, including for help accessing
-                publications.
+                Explore my website to learn more about my work, my research on comparative criminal law, and my efforts to promote justice on a global scale.
               </p>
             </div>
           </div>

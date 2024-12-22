@@ -24,15 +24,16 @@ const Navbar = () => {
       className="relative w-full py-3 mt-0 text-white"
       style={{ backgroundColor: "#113016" }}
     >
-      <div className="flex items-center justify-between px-6 mx-auto ">
+      <div className="flex items-center justify-between px-6 mx-auto">
         {/* Logo */}
         <div className="text-2xl font-semibold tracking-tight">
-          Ben <span className="text-gray-400 dark:text-gray-500">Jarman</span>
+          <span className="font-light text-white">Ben</span>{" "}
+          <span className="font-bold text-gray-400 dark:text-gray-500">Jarman</span>
         </div>
 
         {/* Navigation Links */}
         <ul className="hidden space-x-12 lg:flex">
-          {["Home", "About", "Blog", "Publications", "CV"].map((link) => (
+          {["Home", "About", "Research", "Blog", "Publications", "CV"].map((link) => (
             <li key={link}>
               <Link
                 to={`/${link.toLowerCase()}`}
@@ -106,7 +107,7 @@ const Navbar = () => {
       {mobileDrawerOpen && (
         <div className="flex flex-col items-center w-full px-6 py-4 bg-gray-800 dark:bg-black lg:hidden">
           <ul className="w-full space-y-6 text-center text-gray-300 dark:text-gray-400">
-            {["Home", "About", "Blog", "Publications", "CV"].map((link) => (
+            {["Home", "About", "Research", "Blog", "Publications", "CV"].map((link) => (
               <li key={link}>
                 <Link
                   to={`/${link.toLowerCase()}`}

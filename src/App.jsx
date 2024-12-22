@@ -4,7 +4,8 @@ import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./constants/ThemeContext";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Blog from "./pages/Blog";
+import Research from "./pages/Research"; // Research Page Component
+import Blog from "./pages/Blog"; // Blog Page Component
 import Publications from "./pages/Publications";
 import CV from "./pages/CV";
 
@@ -20,7 +21,8 @@ const App = () => {
           <Route path="/home" element={<Navigate to="/" replace />} />
           {/* Other Routes */}
           <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/research" element={<Research />} />
+          <Route path="/blog" element={<Blog />} /> {/* Added the Blog Route */}
           <Route path="/publications" element={<Publications />} />
           <Route path="/cv" element={<CV />} />
           {/* Fallback for undefined routes */}

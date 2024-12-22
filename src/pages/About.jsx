@@ -1,7 +1,6 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import profile from "../../public/img/profile.jpg"; // Profile image
+import profile from "../../public/img/about.jpg"; // Profile image
 import { FiMail } from "react-icons/fi";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
@@ -13,8 +12,6 @@ const About = () => {
 
   return (
     <div className={`${theme === "dark" ? "bg-gray-900 text-gray-200" : "bg-white text-gray-800"}`}>
-      
-
       {/* About Section */}
       <div className="container px-4 py-12 mx-auto lg:flex lg:gap-12 lg:items-start">
         {/* Left Section: Profile, Name, Role, Social Icons */}
@@ -87,56 +84,28 @@ const About = () => {
         {/* Right Section: Text Content */}
         <div className="mt-8 lg:w-2/3 lg:mt-0">
           <p className="leading-relaxed">
-            I am a Research Fellow at the University of Southampton, where I
-            joined the{" "}
-            <a href="#" className="text-teal-500 underline">
-              Law School
-            </a>{" "}
-            in December 2024. My research to date has focused on long-term
-            imprisonment and its broader implications for prisoners, the penal
-            system, and for criminal justice in the UK more generally.
+            I did not enter the legal field with criminal law in mind. I initially saw the legal system as a well-oiled machine that ensured only the guilty would be punished. However, my experiences soon revealed a more painful reality. Our criminal justice system, though not without merit,{" "}
+            <span className="text-teal-500 underline">disproportionately targets vulnerable populations</span>
+            —those with limited resources who are often overrepresented behind bars and most in need of help. This systemic issue is not confined to the United States but is a{" "}
+            <span className="text-teal-500 underline">global concern</span>. It was this disparity that led me to seek change.
           </p>
 
           <p className="mt-4 leading-relaxed">
-            I am interested by how people cope, and survive, when they are
-            facing lengthy or lifelong punishment after a serious conviction.
-            Partly, this is a question relating to the practical and emotional
-            challenges of imprisonment, though this is well explored by existing
-            research. What is less thoroughly researched is the moral dimensions
-            of extreme sentences: the claim that they communicate society’s
-            disapproval of the index offence, while conveying to the person
-            convicted that they deserve to suffer for their actions, and ought
-            to change.
+            My work is driven by the belief that{" "}
+            <span className="text-teal-500 underline">justice should be focused not just on punishment but on human rights and second chances</span>. We are more than the worst thing we have done, and{" "}
+            <span className="text-teal-500 underline">how we treat the most derided individuals in our society is the truest reflection of who we are</span> as a people. My goal is to contribute to a justice system that acknowledges{" "}
+            <span className="text-teal-500 underline">human dignity</span> and offers opportunities for{" "}
+            <span className="text-teal-500 underline">redemption and rehabilitation</span>.
           </p>
 
           <p className="mt-4 leading-relaxed">
-            My doctorate, completed in 2024 at the Cambridge{" "}
-            <a href="#" className="text-teal-500 underline">
-              Prisons Research Centre
-            </a>{" "}
-            was jointly funded by{" "}
-            <a href="#" className="text-teal-500 underline">
-              UKRI
-            </a>{" "}
-            and{" "}
-            <a href="#" className="text-teal-500 underline">
-              Quakers in Britain
-            </a>
-            . It investigated the ethical experiences in prison of men serving
-            mandatory life sentences for murder.
-          </p>
-
-          <p className="mt-4 leading-relaxed">
-            Building on this foundation, my current work at Southampton explores
-            the purpose and future of parole in England & Wales. It explores the
-            intersections between the sociology of prisons and punishment, moral
-            philosophy (specifically, penal theory), and criminal law.
-          </p>
-
-          <p className="mt-4 leading-relaxed">
-            I welcome contact and am interested in building networks at
-            Southampton and beyond. If you find what I’m doing interesting and
-            want to make contact, please get in touch and introduce yourself.
+            I am a visiting professor at{" "}
+            <span className="text-teal-500 underline">IE University Law School in Spain</span>, where I teach criminal law and human rights. I have also been teaching law and human rights at the{" "}
+            <span className="text-teal-500 underline">University of Minnesota Law School</span> since 2020. In 2023, I completed my doctorate in Law at the{" "}
+            <span className="text-teal-500 underline">Universidad Carlos III de Madrid</span>. My research focused on comparative studies of{" "}
+            <span className="text-teal-500 underline">life sentence practices</span>, particularly the{" "}
+            <span className="text-teal-500 underline">reimplementation of life sentences in Spain and the U.S.</span>, and the{" "}
+            <span className="text-teal-500 underline">human rights implications</span> of such sentences.
           </p>
         </div>
       </div>
