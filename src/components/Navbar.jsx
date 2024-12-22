@@ -28,12 +28,12 @@ const Navbar = () => {
         {/* Logo */}
         <div className="text-2xl font-semibold tracking-tight">
           <span className="font-light text-white">Ben</span>{" "}
-          <span className="font-bold text-gray-400 dark:text-gray-500">Jarman</span>
+          <span className="font-bold text-white ">Jarman</span>
         </div>
 
         {/* Navigation Links */}
         <ul className="hidden space-x-12 lg:flex">
-          {["Home", "About", "Research", "Blog", "Publications", "CV"].map((link) => (
+          {["Home", "About", "Research", "Publications", "CV"].map((link) => (
             <li key={link}>
               <Link
                 to={`/${link.toLowerCase()}`}
@@ -107,7 +107,7 @@ const Navbar = () => {
       {mobileDrawerOpen && (
         <div className="flex flex-col items-center w-full px-6 py-4 bg-gray-800 dark:bg-black lg:hidden">
           <ul className="w-full space-y-6 text-center text-gray-300 dark:text-gray-400">
-            {["Home", "About", "Research", "Blog", "Publications", "CV"].map((link) => (
+            {["Home", "About", "Research", "Publications", "CV"].map((link) => (
               <li key={link}>
                 <Link
                   to={`/${link.toLowerCase()}`}

@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "../components/Footer";
-import profile from "../../public/img/about.jpg"; // Profile image
+import profile from "../../public/img/about1.jpg"; // Profile image
 import { FiMail } from "react-icons/fi";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";

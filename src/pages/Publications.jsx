@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import {
   publications,
@@ -10,8 +9,6 @@ import { useTheme } from "../constants/ThemeContext"; // Import useTheme hook
 
 const Publications = () => {
   const { theme } = useTheme(); // Access theme from context
-  const itemsPerPage = 5; // Number of items per page
-  const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState("latest"); // State for sorting option
 
   // Sorting Logic
@@ -22,28 +19,12 @@ const Publications = () => {
     return 0;
   });
 
-  // Calculate total pages
-  const totalPages = Math.ceil(sortedPublications.length / itemsPerPage);
-
-  // Paginate Publications
-  const paginatedPublications = sortedPublications.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
-
-  // Handle Pagination Click
-  const handlePageClick = (page) => {
-    setCurrentPage(page);
-  };
-
   return (
     <div
       className={`${
         theme === "dark" ? "bg-gray-900 text-gray-200" : "bg-white text-gray-800"
       }`}
     >
-  
-
       {/* Publications Container */}
       <div className="container flex flex-col gap-8 px-8 py-8 mx-auto md:flex-row">
         {/* Main Content (70%) */}
@@ -97,7 +78,7 @@ const Publications = () => {
                 </tr>
               </thead>
               <tbody>
-                {paginatedPublications.map((pub) => (
+                {sortedPublications.map((pub) => (
                   <tr
                     key={pub.id}
                     className={`hover:${
@@ -120,27 +101,6 @@ const Publications = () => {
                 ))}
               </tbody>
             </table>
-          </div>
-
-          {/* Pagination Buttons */}
-          <div className="flex justify-center mt-6 space-x-2">
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index + 1}
-                onClick={() => handlePageClick(index + 1)}
-                className={`px-4 py-2 rounded ${
-                  currentPage === index + 1
-                    ? "bg-teal-500 text-white"
-                    : `${
-                        theme === "dark"
-                          ? "bg-gray-700 text-gray-200 hover:bg-gray-600"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                      }`
-                }`}
-              >
-                {index + 1}
-              </button>
-            ))}
           </div>
         </div>
 
