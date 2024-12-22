@@ -13,33 +13,19 @@ const Research = () => {
       }`}
     >
       {/* Content Section */}
-      <div className="flex-grow px-6 py-12">
-        {/* Image Section */}
-        <div className="flex justify-center">
-          <img
-            src={research}
-            alt="Research"
-            className="object-cover w-full h-64 max-w-3xl rounded-lg shadow-lg"
-          />
-        </div>
-        {/* Separator Line */}
-        <div
-          className={`mt-4 border-t ${
-            theme === "dark" ? "border-gray-700" : "border-gray-300"
-          }`}
-        ></div>
+      <div
+        className="relative flex-grow h-full px-6 py-12 bg-center bg-cover"
+        style={{ backgroundImage: `url(${research})` }}
+      >
+        {/* Overlay Layer */}
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
         {/* Text Content */}
-        <div className="max-w-4xl mx-auto mt-8">
-          <p className="leading-relaxed">
-            My research focuses on the intersection of{" "}
-            <span className="text-teal-500 underline">comparative criminal law</span>,{" "}
-            <span className="text-teal-500 underline">human rights</span>,{" "}
-            <span className="text-teal-500 underline">restorative justice</span>, and{" "}
-            <span className="text-teal-500 underline">parole systems</span>. I aim to
+        <div className="relative max-w-4xl p-6 mx-auto bg-gray-900 bg-opacity-75 rounded-lg shadow-lg">
+          <p className="leading-relaxed text-white">
+            My research focuses on the intersection of comparative criminal law, human rights, restorative justice, and parole systems. I aim to
             bring transparency and accountability to the administration of punishment,
-            particularly in the context of{" "}
-            <span className="text-teal-500 underline">tough-on-crime policies</span> that
+            particularly in the context of tough-on-crime policies that
             prioritize lengthy incarceration over rehabilitation. These approaches,
             especially prevalent in the U.S., have consistently proven ineffective, yet
             they continue to dominate policy discussions. My work challenges these
@@ -49,22 +35,21 @@ const Research = () => {
             differences.
           </p>
 
-          <p className="mt-4 leading-relaxed">
-            In my doctoral research at the{" "}
-            <span className="text-teal-500 underline">Universidad Carlos III de Madrid</span>,
+          <p className="mt-4 leading-relaxed text-white">
+            In my doctoral research at the Universidad Carlos III de Madrid,
             I demonstrated the significant value of comparing the Spanish and U.S. legal
             systems. Despite common assumptions, my findings provided novel insights into
-            how the <span className="text-teal-500 underline">law-and-order approach</span>,
+            how the law-and-order approach,
             which remains a hallmark of 1970s U.S. policies, is unlikely to bring about
             lasting change.
           </p>
 
-          <p className="mt-8 text-xl font-semibold">
+          <p className="mt-8 text-xl font-semibold text-teal-300">
             My ongoing research has expanded into several new areas:
           </p>
 
           {/* Virtual Life Sentences */}
-          <p className="mt-4 leading-relaxed">
+          <p className="mt-4 leading-relaxed text-white">
             <span className="font-bold text-teal-500">Virtual Life Sentences:</span> While
             there is growing discourse on the death penalty and life sentences, the status
             of long-term fixed sentences is often less clear. Sentences with minimum terms
@@ -72,30 +57,27 @@ const Research = () => {
           </p>
 
           {/* Human Rights and Vulnerable Prisoners */}
-          <p className="mt-4 leading-relaxed">
-            <span className="font-bold text-teal-500">Human Rights and Vulnerable Prisoners:</span>{" "}
+          <p className="mt-4 leading-relaxed text-white">
+            <span className="font-bold text-teal-500">Human Rights and Vulnerable Prisoners:</span> 
             My research also delves into the human rights of prisoners, particularly those
             with mental health conditions. Recent rulings by international courts, including
-            the <span className="text-teal-500 underline">European Court of Human Rights</span>,
+            the European Court of Human Rights,
             emphasize the importance of ensuring that prisoners are not subjected to
-            inhumane conditions. These decisions underscore the need for{" "}
-            <span className="text-teal-500 underline">alternatives to incarceration</span>,
+            inhumane conditions. These decisions underscore the need for alternatives to incarceration,
             with a focus on rehabilitation and treatment rather than punishment.
           </p>
 
-          <p className="mt-4 leading-relaxed">
+          <p className="mt-4 leading-relaxed text-white">
             Through comparative analysis and interdisciplinary methods, I approach these
             issues from diverse perspectives, providing deeper insights into how legal
-            systems can be reformed to prioritize{" "}
-            <span className="text-teal-500 underline">human dignity</span>,{" "}
-            <span className="text-teal-500 underline">rehabilitation</span>, and{" "}
-            <span className="text-teal-500 underline">justice</span>.
+            systems can be reformed to prioritize human dignity, 
+            rehabilitation, and justice.
           </p>
         </div>
       </div>
 
       {/* Footer Section */}
-      <Footer />
+      <Footer className="mt-0" />
     </div>
   );
 };

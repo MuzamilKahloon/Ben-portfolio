@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import { FiRss, FiSearch } from "react-icons/fi";
+import { FiSearch } from "react-icons/fi";
 import { useTheme } from "../constants/ThemeContext";
 
 const Navbar = () => {
@@ -47,15 +47,6 @@ const Navbar = () => {
 
         {/* Icons */}
         <div className="items-center hidden space-x-6 lg:flex">
-          {/* RSS Feed Icon */}
-          <a
-            href="#"
-            aria-label="RSS Feed"
-            className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white"
-          >
-            <FiRss size={20} />
-          </a>
-
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
@@ -122,14 +113,6 @@ const Navbar = () => {
 
           {/* Mobile Icons */}
           <div className="flex justify-center mt-6 space-x-6">
-            {/* RSS Feed Icon */}
-            <a
-              href="#"
-              className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white"
-            >
-              <FiRss size={20} />
-            </a>
-
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}

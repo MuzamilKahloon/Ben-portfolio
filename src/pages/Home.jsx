@@ -18,11 +18,11 @@ const Home = () => {
       {/* Add padding to compensate for the fixed navbar */}
       <div className="pt-16">
         {/* Content Section */}
-        <div className="container flex flex-col items-center min-h-screen">
+        <div className="container flex flex-col items-center min-h-screen mb-20">
           <div className="flex flex-col items-center justify-center px-4 mt-12 text-center">
             {/* Profile Image */}
             <img
-              src="/img/profile.jpg" // Use absolute path from 'public' folder
+              src="/img/about1.jpg" // Use absolute path from 'public' folder
               alt="Ben Jarman"
               className="object-cover rounded-full shadow-lg h-60 w-60"
             />

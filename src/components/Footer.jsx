@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <footer
-      className={`py-6 mt-10 border-t ${
+      className={`py-6  border-t ${
         theme === "dark"
           ? "bg-gray-800 border-gray-700 text-gray-400"
           : "bg-gray-100 border-gray-300 text-gray-600"

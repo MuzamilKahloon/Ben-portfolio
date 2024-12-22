@@ -13,7 +13,7 @@ const About = () => {
   return (
     <div className={`${theme === "dark" ? "bg-gray-900 text-gray-200" : "bg-white text-gray-800"}`}>
       {/* About Section */}
-      <div className="container px-4 py-12 mx-auto lg:flex lg:gap-12 lg:items-start">
+      <div className="container px-4 py-12 mx-auto mb-10 lg:flex lg:gap-12 lg:items-start">
         {/* Left Section: Profile, Name, Role, Social Icons */}
         <div className="flex flex-col items-center lg:w-1/3">
           {/* Profile Image */}
@@ -84,28 +84,15 @@ const About = () => {
         {/* Right Section: Text Content */}
         <div className="mt-8 lg:w-2/3 lg:mt-0">
           <p className="leading-relaxed">
-            I did not enter the legal field with criminal law in mind. I initially saw the legal system as a well-oiled machine that ensured only the guilty would be punished. However, my experiences soon revealed a more painful reality. Our criminal justice system, though not without merit,{" "}
-            <span className="text-teal-500 underline">disproportionately targets vulnerable populations</span>
-            —those with limited resources who are often overrepresented behind bars and most in need of help. This systemic issue is not confined to the United States but is a{" "}
-            <span className="text-teal-500 underline">global concern</span>. It was this disparity that led me to seek change.
+            I did not enter the legal field with criminal law in mind. I initially saw the legal system as a well-oiled machine that ensured only the guilty would be punished. However, my experiences soon revealed a more painful reality. Our criminal justice system, though not without merit, disproportionately targets vulnerable populations—those with limited resources who are often overrepresented behind bars and most in need of help. This systemic issue is not confined to the United States but is a global concern. It was this disparity that led me to seek change.
           </p>
 
           <p className="mt-4 leading-relaxed">
-            My work is driven by the belief that{" "}
-            <span className="text-teal-500 underline">justice should be focused not just on punishment but on human rights and second chances</span>. We are more than the worst thing we have done, and{" "}
-            <span className="text-teal-500 underline">how we treat the most derided individuals in our society is the truest reflection of who we are</span> as a people. My goal is to contribute to a justice system that acknowledges{" "}
-            <span className="text-teal-500 underline">human dignity</span> and offers opportunities for{" "}
-            <span className="text-teal-500 underline">redemption and rehabilitation</span>.
+            My work is driven by the belief that justice should be focused not just on punishment but on human rights and second chances. We are more than the worst thing we have done, and how we treat the most derided individuals in our society is the truest reflection of who we are as a people. My goal is to contribute to a justice system that acknowledges human dignity and offers opportunities for redemption and rehabilitation.
           </p>
 
           <p className="mt-4 leading-relaxed">
-            I am a visiting professor at{" "}
-            <span className="text-teal-500 underline">IE University Law School in Spain</span>, where I teach criminal law and human rights. I have also been teaching law and human rights at the{" "}
-            <span className="text-teal-500 underline">University of Minnesota Law School</span> since 2020. In 2023, I completed my doctorate in Law at the{" "}
-            <span className="text-teal-500 underline">Universidad Carlos III de Madrid</span>. My research focused on comparative studies of{" "}
-            <span className="text-teal-500 underline">life sentence practices</span>, particularly the{" "}
-            <span className="text-teal-500 underline">reimplementation of life sentences in Spain and the U.S.</span>, and the{" "}
-            <span className="text-teal-500 underline">human rights implications</span> of such sentences.
+            I am a visiting professor at IE University Law School in Spain, where I teach criminal law and human rights. I have also been teaching law and human rights at the University of Minnesota Law School since 2020. In 2023, I completed my doctorate in Law at the Universidad Carlos III de Madrid. My research focused on comparative studies of life sentence practices, particularly the reimplementation of life sentences in Spain and the U.S., and the human rights implications of such sentences.
           </p>
         </div>
       </div>

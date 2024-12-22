@@ -26,7 +26,7 @@ const Publications = () => {
       }`}
     >
       {/* Publications Container */}
-      <div className="container flex flex-col gap-8 px-8 py-8 mx-auto md:flex-row">
+      <div className="container flex flex-col gap-8 px-8 py-8 mx-auto mb-10 md:flex-row">
         {/* Main Content (70%) */}
         <div className="w-full md:w-2/3">
           {/* Publications Title */}
@@ -81,18 +81,23 @@ const Publications = () => {
                 {sortedPublications.map((pub) => (
                   <tr
                     key={pub.id}
-                    className={`hover:${
-                      theme === "dark" ? "bg-gray-700" : "bg-gray-100"
-                    }`}
+                    className={`hover:$
+                      {theme === "dark" ? "bg-gray-700" : "bg-gray-100"}`}
                   >
                     <td className="p-2 border">{pub.date}</td>
                     <td className="p-2 border">
-                      <a
-                        href={pub.link}
-                        className="text-teal-600 underline hover:text-teal-800"
-                      >
-                        {pub.title}
-                      </a>
+                      {pub.link ? (
+                        <a
+                          href={pub.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-teal-600 underline hover:text-teal-800"
+                        >
+                          {pub.title}
+                        </a>
+                      ) : (
+                        <span className="text-teal-600">{pub.title}</span>
+                      )}
                     </td>
                     <td className="p-2 border">{pub.subtitle}</td>
                     <td className="p-2 border">{pub.keywords}</td>
