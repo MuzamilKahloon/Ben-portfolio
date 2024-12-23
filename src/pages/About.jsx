@@ -24,7 +24,7 @@ const About = () => {
           />
 
           {/* Name and Role */}
-          <h1 className="mt-6 text-3xl font-bold text-center">Ben Jarman</h1>
+          <h1 className="mt-6 text-3xl font-bold text-center">Paolo Sartorio</h1>
           <h2 className="text-lg text-center">About me and my work</h2>
 
           {/* Social Media Icons */}

@@ -18,7 +18,7 @@ const Footer = () => {
         {/* Copyright Text */}
         <div className="text-center sm:text-left">
           <p>
-            Site content © 2003-2024 by Ben Jarman. All rights reserved unless
+            Site content © 2003-2024 by Paolo Sartorio. All rights reserved unless
             otherwise noted.
           </p>
         </div>

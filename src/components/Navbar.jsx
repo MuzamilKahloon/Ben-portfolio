@@ -27,8 +27,8 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-6 mx-auto">
         {/* Logo */}
         <div className="text-2xl font-semibold tracking-tight">
-          <span className="font-light text-white">Ben</span>{" "}
-          <span className="font-bold text-white ">Jarman</span>
+          <span className="font-light text-white">Paolo</span>{" "}
+          <span className="font-bold text-white ">Sartorio</span>
         </div>
 
         {/* Navigation Links */}
