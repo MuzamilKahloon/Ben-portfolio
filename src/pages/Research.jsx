@@ -1,5 +1,5 @@
 import React from "react";
-import research from "../../public/img/research.jpeg";
+import research from "../../public/img/research1.jpg";
 import { useTheme } from "../constants/ThemeContext";
 import Footer from "../components/Footer";
 

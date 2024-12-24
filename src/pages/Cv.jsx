@@ -1,5 +1,5 @@
 import React from "react";
-import cv from "../../public/img/CV.webp"; // Use CV image as the background
+import cv from "../../public/img/CV1.jpg"; // Use CV image as the background
 import { useTheme } from "../constants/ThemeContext";
 import Footer from "../components/Footer";
 

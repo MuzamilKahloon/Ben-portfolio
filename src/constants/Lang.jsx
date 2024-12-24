@@ -27,7 +27,7 @@ const resources = {
         copyright: "© Paolo Sartorio 2024 | Privacy Policy | Terms & Conditions | All Rights Reserved.",
         view_source: "View source",
         report_issue: "Report an issue",
-        powered_by: "Powered by Quarto",
+        
       },
     },
   },
@@ -56,7 +56,7 @@ const resources = {
         copyright: "© Paolo Sartorio 2024 | Política de Privacidad | Términos y Condiciones | Todos los derechos reservados.",
         view_source: "Ver código fuente",
         report_issue: "Reportar un problema",
-        powered_by: "Desarrollado por Quarto",
+        
       },
     },
   },
@@ -85,7 +85,7 @@ const resources = {
         copyright: "© Paolo Sartorio 2024 | Politique de confidentialité | Conditions générales | Tous droits réservés.",
         view_source: "Voir la source",
         report_issue: "Signaler un problème",
-        powered_by: "Propulsé par Quarto",
+        
       },
     },
   },
@@ -114,7 +114,7 @@ const resources = {
         copyright: "© Paolo Sartorio 2024 | Politica sulla privacy | Termini e condizioni | Tutti i diritti riservati.",
         view_source: "Visualizza sorgente",
         report_issue: "Segnala un problema",
-        powered_by: "Alimentato da Quarto",
+        
       },
     },
   },

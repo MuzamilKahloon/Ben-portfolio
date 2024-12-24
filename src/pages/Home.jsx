@@ -42,28 +42,28 @@ const Home = () => {
               <span>{t("email")}</span>
             </a>
             <a
-              href="https://linkedin.com"
+              href="www.linkedin.com/in/p-s-1042451b"
               className="flex items-center px-3 py-2 space-x-2 transition border border-gray-500 rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <FaLinkedin size={16} />
               <span>{t("linkedin")}</span>
             </a>
             <a
-              href="https://orcid.org"
+              href="https://orcid.org/0000-0001-6332-3489"
               className="flex items-center px-3 py-2 space-x-2 transition border border-gray-500 rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <SiOrcid size={16} />
               <span>{t("orcid")}</span>
             </a>
             <a
-              href="https://zotero.org"
+              href=" https://www.zotero.org/sartorio"
               className="flex items-center px-3 py-2 space-x-2 transition border border-gray-500 rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <SiZotero size={16} />
               <span>{t("zotero")}</span>
             </a>
             <a
-              href="https://scholar.google.com"
+              href="https://scholar.google.com/citations?user=sD1lUoUAAAAJ&hl=en "
               className="flex items-center px-3 py-2 space-x-2 transition border border-gray-500 rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <SiGooglescholar size={16} />

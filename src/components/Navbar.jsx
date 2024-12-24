@@ -69,7 +69,7 @@ const Navbar = () => {
                 className="flex items-center px-3 py-2 space-x-2 bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none"
               >
                 <FiGlobe size={20} />
-                <span>{t("language") || "Language"}</span>
+                
               </button>
               {languageMenuOpen && (
                 <div className="absolute right-0 mt-2 text-black bg-white rounded shadow-lg">

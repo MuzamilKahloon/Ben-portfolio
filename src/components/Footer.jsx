@@ -2,7 +2,7 @@ import React from "react";
 import { FaGithub } from "react-icons/fa"; // GitHub icon
 import { FiAlertCircle } from "react-icons/fi"; // Report icon
 import { useTranslation } from "react-i18next"; // Import the translation hook
-
+import consitions from '../resume/conditions.docx'
 const Footer = () => {
   const { t } = useTranslation(); // Initialize the translation hook
 
@@ -38,17 +38,7 @@ const Footer = () => {
           </a>
         </div>
 
-        {/* Powered By Section */}
-        <div className="text-center sm:text-right">
-          <a
-            href="https://quarto.org"
-            className="text-sm underline transition hover:text-teal-400"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t("footer.powered_by", "Powered by Quarto")}
-          </a>
-        </div>
+      
       </div>
     </footer>
   );
