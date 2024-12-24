@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiGlobe } from "react-icons/fi";
 import { useTheme } from "../constants/ThemeContext";
+import { useTranslation } from "react-i18next"; // Import useTranslation hook
+
+// Utility function to capitalize the first letter
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useTheme(); // Access theme and toggle function from ThemeContext
+  const { theme, toggleTheme } = useTheme();
+  const { t, i18n } = useTranslation(); // Initialize translation hook
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
 
   // Function to toggle the mobile drawer
   const toggleNavbar = () => {
@@ -19,117 +27,168 @@ const Navbar = () => {
     setSearchOpen(!searchOpen);
   };
 
+  // Function to change the language
+  const switchLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    setLanguageMenuOpen(false); // Close the language menu after selection
+  };
+
   return (
-    <nav
-      className="relative w-full py-3 mt-0 text-white"
-      style={{ backgroundColor: "#113016" }}
-    >
-      <div className="flex items-center justify-between px-6 mx-auto">
+    <nav className="absolute top-0 left-0 z-50 w-full text-white bg-gray-800 shadow-md">
+      <div className="flex items-center justify-between px-6 py-3 mx-auto max-w-7xl">
         {/* Logo */}
-        <div className="text-2xl font-semibold tracking-tight">
-          <span className="font-light text-white">Paolo</span>{" "}
-          <span className="font-bold text-white ">Sartorio</span>
+        <div className="text-2xl font-bold">
+          <Link to="/" className="transition hover:text-teal-400">
+            <span className="font-light">Paolo</span>{" "}
+            <span className="font-bold">Sartorio</span>
+          </Link>
         </div>
 
-        {/* Navigation Links */}
-        <ul className="hidden space-x-12 lg:flex">
-          {["Home", "About", "Research", "Publications", "CV"].map((link) => (
-            <li key={link}>
+        {/* Desktop Navigation Links */}
+        <ul className="hidden space-x-8 lg:flex">
+          {["home", "about", "research", "publications", "cv"].map((key) => (
+            <li key={key}>
               <Link
-                to={`/${link.toLowerCase()}`}
-                className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white"
+                to={`/${key}`}
+                className="transition hover:text-teal-400"
               >
-                {link}
+                {capitalizeFirstLetter(t(key))} {/* Capitalize translation */}
               </Link>
             </li>
           ))}
         </ul>
 
-        {/* Icons */}
-        <div className="items-center hidden space-x-6 lg:flex">
+        {/* Icons Section */}
+        <div className="flex items-center space-x-6">
+          {/* Language Selector */}
+          <div className="relative hidden lg:block">
+            <button
+              onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
+              aria-label="Language Selector"
+              className="flex items-center px-3 py-2 space-x-2 bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none"
+            >
+              <FiGlobe size={20} />
+              <span>{t("language") || "Language"}</span>
+            </button>
+            {languageMenuOpen && (
+              <div className="absolute right-0 mt-2 text-black bg-white rounded shadow-lg">
+                <ul>
+                  <li
+                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                    onClick={() => switchLanguage("en")}
+                  >
+                    English
+                  </li>
+                  <li
+                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                    onClick={() => switchLanguage("es")}
+                  >
+                    Spanish
+                  </li>
+                  <li
+                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                    onClick={() => switchLanguage("fr")}
+                  >
+                    French
+                  </li>
+                  <li
+                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                    onClick={() => switchLanguage("it")}
+                  >
+                    Italian
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle Theme"
-            className="text-gray-300 transition hover:text-teal-500 dark:text-gray-400 dark:hover:text-teal-400 focus:outline-none"
+            className="transition hover:text-teal-400 focus:outline-none"
           >
-            {theme === "light" ? <Sun size={24} /> : <Moon size={24} />}
+            {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
           </button>
 
           {/* Search Icon */}
           <button
             onClick={toggleSearch}
             aria-label="Search"
-            className="text-gray-300 transition hover:text-white dark:text-gray-400 dark:hover:text-white focus:outline-none"
+            className="transition hover:text-teal-400 focus:outline-none"
           >
             <FiSearch size={24} />
           </button>
-        </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={toggleNavbar}
-          aria-label="Toggle Mobile Menu"
-          className="text-gray-300 lg:hidden dark:text-gray-400"
-        >
-          {mobileDrawerOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
-
-      {/* Search Bar */}
-      {searchOpen && (
-        <div className="absolute left-0 flex items-center w-full p-3 bg-white shadow-md top-full dark:bg-gray-900">
-          <FiSearch size={20} className="ml-3 text-gray-500 dark:text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-full p-2 text-gray-700 bg-transparent border-none dark:text-white focus:outline-none"
-          />
+          {/* Mobile Menu Toggle */}
           <button
-            onClick={toggleSearch}
-            className="mr-3 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+            onClick={toggleNavbar}
+            aria-label="Toggle Mobile Menu"
+            className="transition lg:hidden hover:text-teal-400 focus:outline-none"
           >
-            Cancel
+            {mobileDrawerOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
-      )}
+      </div>
 
       {/* Mobile Drawer */}
       {mobileDrawerOpen && (
-        <div className="flex flex-col items-center w-full px-6 py-4 bg-gray-800 dark:bg-black lg:hidden">
-          <ul className="w-full space-y-6 text-center text-gray-300 dark:text-gray-400">
-            {["Home", "About", "Research", "Publications", "CV"].map((link) => (
-              <li key={link}>
+        <div className="absolute left-0 w-full text-white bg-gray-800 lg:hidden top-full">
+          <ul className="flex flex-col items-center p-4 space-y-4">
+            {["home", "about", "research", "publications", "cv"].map((key) => (
+              <li key={key}>
                 <Link
-                  to={`/${link.toLowerCase()}`}
-                  onClick={toggleNavbar}
-                  className="block py-2 hover:text-white dark:hover:text-teal-400"
+                  to={`/${key}`}
+                  onClick={toggleNavbar} // Close drawer on link click
+                  className="transition hover:text-teal-400"
                 >
-                  {link}
+                  {capitalizeFirstLetter(t(key))}
                 </Link>
               </li>
             ))}
           </ul>
-
-          {/* Mobile Icons */}
-          <div className="flex justify-center mt-6 space-x-6">
-            {/* Theme Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle Theme"
-              className="text-gray-300 transition hover:text-teal-500 dark:text-gray-400 dark:hover:text-teal-400 focus:outline-none"
-            >
-              {theme === "light" ? <Sun size={24} /> : <Moon size={24} />}
-            </button>
-
-            {/* Search Icon */}
-            <button
-              onClick={toggleSearch}
-              aria-label="Search"
-              className="text-gray-300 hover:text-white dark:text-gray-400 dark:hover:text-white"
-            >
-              <FiSearch size={20} />
-            </button>
+          {/* Language Selector in Mobile Drawer */}
+          <div className="p-4 text-center">
+            <div className="relative inline-block">
+              <button
+                onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
+                aria-label="Language Selector"
+                className="flex items-center px-3 py-2 space-x-2 bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none"
+              >
+                <FiGlobe size={20} />
+                <span>{t("language") || "Language"}</span>
+              </button>
+              {languageMenuOpen && (
+                <div className="absolute right-0 mt-2 text-black bg-white rounded shadow-lg">
+                  <ul>
+                    <li
+                      className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                      onClick={() => switchLanguage("en")}
+                    >
+                      English
+                    </li>
+                    <li
+                      className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                      onClick={() => switchLanguage("es")}
+                    >
+                      Spanish
+                    </li>
+                    <li
+                      className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                      onClick={() => switchLanguage("fr")}
+                    >
+                      French
+                    </li>
+                    <li
+                      className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                      onClick={() => switchLanguage("it")}
+                    >
+                      Italian
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

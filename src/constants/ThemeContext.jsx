@@ -7,9 +7,10 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "light"
-  );
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme ? savedTheme : "dark"; // Default to "dark"
+  });
 
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);

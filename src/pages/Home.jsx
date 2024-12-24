@@ -1,20 +1,25 @@
 import React from "react";
+import Navbar from "../components/Navbar"; // Use Navbar Component
 import Footer from "../components/Footer";
 import { FiMail } from "react-icons/fi"; // Email Icon
-import { FaLinkedin, FaGithub } from "react-icons/fa"; // LinkedIn & GitHub Icons
-import { BsTwitter } from "react-icons/bs"; // Bluesky (alt) Icon
+import { FaLinkedin } from "react-icons/fa"; // LinkedIn Icon
 import { SiOrcid, SiZotero, SiGooglescholar } from "react-icons/si"; // ORCID, Zotero, Scholar
 import { useTheme } from "../constants/ThemeContext"; // Import useTheme hook
+import { useTranslation } from "react-i18next"; // Import useTranslation hook
 
 const Home = () => {
-  const { theme } = useTheme(); // Access the current theme from context
+  const { theme } = useTheme(); // Access the current theme and toggle function from context
+  const { t } = useTranslation(); // Access translation function
 
   return (
     <div
       className={`${
-        theme === "dark" ? "bg-gray-900 text-gray-200" : "bg-white text-gray-800"
+        theme === "dark" ? "bg-black text-white" : "bg-white text-black"
       }`}
     >
+      {/* Include Navbar Component */}
+      <Navbar />
+
       {/* Add padding to compensate for the fixed navbar */}
       <div className="pt-16">
         {/* Content Section */}
@@ -23,26 +28,32 @@ const Home = () => {
             {/* Profile Image */}
             <img
               src="/img/about1.jpg" // Use absolute path from 'public' folder
-              alt="Ben Jarman"
-              className="object-cover rounded-full shadow-lg h-60 w-60"
+              alt={t("profile_alt", "Profile picture of Ben Jarman")}
+              className="object-cover shadow-lg rounded-xl h-60 w-60"
             />
 
             {/* Welcome Text */}
-            <h1 className="mt-6 text-4xl font-bold">Welcome</h1>
+            <h1 className="mt-6 text-4xl font-bold">{t("welcome", "Welcome")}</h1>
             <p className="mt-2 text-lg font-semibold">
-              Experience Matters: A Commitment to Justice and Human Rights
+              {t(
+                "commitment_text",
+                "Experience Matters: A Commitment to Justice and Human Rights"
+              )}
             </p>
 
             {/* Description */}
             <div className="max-w-3xl mt-6 text-lg font-normal leading-relaxed">
               <p>
-                With over 15 years of experience as a criminal defense attorney, 5 years as a law professor, and a growing focus on comparative criminal law and human rights, I bring a unique perspective to the pursuit of justice. My professional journey has shaped my research, which seeks to bridge the gap between theory and practice, creating impactful solutions for real-world legal challenges.
+                {t(
+                  "experience_description",
+                  "With over 15 years of experience as a criminal defense attorney, 5 years as a law professor, and a growing focus on comparative criminal law and human rights, I bring a unique perspective to the pursuit of justice."
+                )}
               </p>
               <p className="mt-4">
-                I believe that justice is not an abstract concept—it is a vital force that affects every individual, every community, and every nation. As Martin Luther King Jr. famously wrote, "Injustice anywhere is a threat to justice everywhere." This guiding principle fuels my work and my commitment to advocating for human rights, both in the courtroom and through my academic research.
-              </p>
-              <p className="mt-4">
-                Explore my website to learn more about my work, my research on comparative criminal law, and my efforts to promote justice on a global scale.
+                {t(
+                  "explore_website",
+                  "Explore my website to learn more about my work, my research on comparative criminal law, and my efforts to promote justice on a global scale."
+                )}
               </p>
             </div>
           </div>
@@ -52,58 +63,42 @@ const Home = () => {
             {/* Email */}
             <a
               href="mailto:example@example.com"
-              className="flex items-center space-x-2 px-3 py-2 border border-gray-500 rounded-md hover:text-[#18bc9c] hover:border-[#18bc9c] transition"
+              className="flex items-center px-3 py-2 space-x-2 transition border border-gray-500 rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <FiMail size={16} />
-              <span>Email</span>
+              <span>{t("email", "Email")}</span>
             </a>
             {/* LinkedIn */}
             <a
               href="https://linkedin.com"
-              className="flex items-center space-x-2 px-3 py-2 border border-gray-500 rounded-md hover:text-[#18bc9c] hover:border-[#18bc9c] transition"
+              className="flex items-center px-3 py-2 space-x-2 transition border border-gray-500 rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <FaLinkedin size={16} />
-              <span>LinkedIn</span>
-            </a>
-            {/* Bluesky */}
-            <a
-              href="https://bluesky.social"
-              className="flex items-center space-x-2 px-3 py-2 border border-gray-500 rounded-md hover:text-[#18bc9c] hover:border-[#18bc9c] transition"
-            >
-              <BsTwitter size={16} />
-              <span>Bluesky</span>
+              <span>{t("linkedin", "LinkedIn")}</span>
             </a>
             {/* ORCID */}
             <a
               href="https://orcid.org"
-              className="flex items-center space-x-2 px-3 py-2 border border-gray-500 rounded-md hover:text-[#18bc9c] hover:border-[#18bc9c] transition"
+              className="flex items-center px-3 py-2 space-x-2 transition border border-gray-500 rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <SiOrcid size={16} />
-              <span>ORCiD</span>
+              <span>{t("orcid", "ORCID")}</span>
             </a>
             {/* Zotero */}
             <a
               href="https://zotero.org"
-              className="flex items-center space-x-2 px-3 py-2 border border-gray-500 rounded-md hover:text-[#18bc9c] hover:border-[#18bc9c] transition"
+              className="flex items-center px-3 py-2 space-x-2 transition border border-gray-500 rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <SiZotero size={16} />
-              <span>Zotero</span>
+              <span>{t("zotero", "Zotero")}</span>
             </a>
             {/* Google Scholar */}
             <a
               href="https://scholar.google.com"
-              className="flex items-center space-x-2 px-3 py-2 border border-gray-500 rounded-md hover:text-[#18bc9c] hover:border-[#18bc9c] transition"
+              className="flex items-center px-3 py-2 space-x-2 transition border border-gray-500 rounded-md hover:text-teal-500 hover:border-teal-500"
             >
               <SiGooglescholar size={16} />
-              <span>Google Scholar</span>
-            </a>
-            {/* GitHub */}
-            <a
-              href="https://github.com"
-              className="flex items-center space-x-2 px-3 py-2 border border-gray-500 rounded-md hover:text-[#18bc9c] hover:border-[#18bc9c] transition"
-            >
-              <FaGithub size={16} />
-              <span>GitHub</span>
+              <span>{t("google_scholar", "Google Scholar")}</span>
             </a>
           </div>
         </div>

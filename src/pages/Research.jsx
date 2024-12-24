@@ -14,7 +14,7 @@ const Research = () => {
     >
       {/* Content Section */}
       <div
-        className="relative flex-grow h-full px-6 py-12 bg-center bg-cover"
+        className="relative flex-grow h-full px-6 py-12 mt-10 bg-center bg-cover"
         style={{ backgroundImage: `url(${research})` }}
       >
         {/* Overlay Layer */}
@@ -22,7 +22,7 @@ const Research = () => {
 
         {/* Text Content */}
         <div className="relative max-w-4xl p-6 mx-auto bg-gray-900 bg-opacity-75 rounded-lg shadow-lg">
-          <p className="leading-relaxed text-white">
+          <p className="leading-relaxed text-justify text-white">
             My research focuses on the intersection of comparative criminal law, human rights, restorative justice, and parole systems. I aim to
             bring transparency and accountability to the administration of punishment,
             particularly in the context of tough-on-crime policies that
@@ -35,7 +35,7 @@ const Research = () => {
             differences.
           </p>
 
-          <p className="mt-4 leading-relaxed text-white">
+          <p className="mt-4 leading-relaxed text-justify text-white">
             In my doctoral research at the Universidad Carlos III de Madrid,
             I demonstrated the significant value of comparing the Spanish and U.S. legal
             systems. Despite common assumptions, my findings provided novel insights into
@@ -49,7 +49,7 @@ const Research = () => {
           </p>
 
           {/* Virtual Life Sentences */}
-          <p className="mt-4 leading-relaxed text-white">
+          <p className="mt-4 leading-relaxed text-justify text-white">
             <span className="font-bold text-teal-500">Virtual Life Sentences:</span> While
             there is growing discourse on the death penalty and life sentences, the status
             of long-term fixed sentences is often less clear. Sentences with minimum terms
@@ -57,7 +57,7 @@ const Research = () => {
           </p>
 
           {/* Human Rights and Vulnerable Prisoners */}
-          <p className="mt-4 leading-relaxed text-white">
+          <p className="mt-4 leading-relaxed text-justify text-white">
             <span className="font-bold text-teal-500">Human Rights and Vulnerable Prisoners:</span> 
             My research also delves into the human rights of prisoners, particularly those
             with mental health conditions. Recent rulings by international courts, including
@@ -67,7 +67,7 @@ const Research = () => {
             with a focus on rehabilitation and treatment rather than punishment.
           </p>
 
-          <p className="mt-4 leading-relaxed text-white">
+          <p className="mt-4 leading-relaxed text-justify text-white">
             Through comparative analysis and interdisciplinary methods, I approach these
             issues from diverse perspectives, providing deeper insights into how legal
             systems can be reformed to prioritize human dignity, 

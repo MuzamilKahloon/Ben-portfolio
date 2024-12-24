@@ -2,13 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Light Theme */
 body[data-theme='light'] {
-    background-color: white;
-    
-  }
-  
-  body[data-theme='dark'] {
-  
-    color: white;
-  }
-  
+  background-color: white;
+  color: black;
+}
+
+/* Dark Theme */
+body[data-theme='dark'] {
+  background-color: black;
+  color: white;
+}
+
+/* Fixed Gray Navbar and Footer Styling */
+.navbar,
+.footer {
+  background-color: #555; /* Fixed gray background for both themes */
+  color: white; /* White text for navbar and footer */
+}
+
+.navbar a,
+.footer a {
+  color: white; /* Default white links */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navbar a:hover,
+.footer a:hover {
+  color: teal; /* Hover color for links */
+}
+
+/* Utility Classes for Borders */
+.border-light {
+  border-color: black;
+}
+
+.border-dark {
+  border-color: white;
+}

@@ -1,25 +1,16 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa"; // GitHub icon
 import { FiAlertCircle } from "react-icons/fi"; // Report icon
-import { useTheme } from "../constants/ThemeContext"; // Import useTheme hook
 
 const Footer = () => {
-  const { theme } = useTheme(); // Access the current theme
-
   return (
-    <footer
-      className={`py-6  border-t ${
-        theme === "dark"
-          ? "bg-gray-800 border-gray-700 text-gray-400"
-          : "bg-gray-100 border-gray-300 text-gray-600"
-      }`}
-    >
+    <footer className="py-6 text-gray-200 bg-gray-800">
       <div className="container flex flex-col items-center justify-center gap-6 px-4 mx-auto sm:flex-row sm:justify-between">
         {/* Copyright Text */}
         <div className="text-center sm:text-left">
           <p>
-            Site content © 2003-2024 by Paolo Sartorio. All rights reserved unless
-            otherwise noted.
+            © Paolo Sartorio 2024 | Privacy Policy | Terms & Conditions | All
+            Rights Reserved.
           </p>
         </div>
 
@@ -27,9 +18,7 @@ const Footer = () => {
         <div className="flex space-x-6">
           <a
             href="https://github.com"
-            className={`flex items-center space-x-2 hover:text-teal-500 transition ${
-              theme === "dark" ? "text-gray-400" : "text-gray-600"
-            }`}
+            className="flex items-center space-x-2 transition hover:text-teal-400"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -38,9 +27,7 @@ const Footer = () => {
           </a>
           <a
             href="https://example.com/report"
-            className={`flex items-center space-x-2 hover:text-teal-500 transition ${
-              theme === "dark" ? "text-gray-400" : "text-gray-600"
-            }`}
+            className="flex items-center space-x-2 transition hover:text-teal-400"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -53,9 +40,7 @@ const Footer = () => {
         <div className="text-center sm:text-right">
           <a
             href="https://quarto.org"
-            className={`hover:text-teal-500 transition underline ${
-              theme === "dark" ? "text-gray-400" : "text-gray-600"
-            }`}
+            className="underline transition hover:text-teal-400"
             target="_blank"
             rel="noopener noreferrer"
           >

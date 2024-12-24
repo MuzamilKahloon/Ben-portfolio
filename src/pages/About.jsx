@@ -2,8 +2,7 @@ import React from "react";
 import Footer from "../components/Footer";
 import profile from "../../public/img/about1.jpg"; // Profile image
 import { FiMail } from "react-icons/fi";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { BsTwitter } from "react-icons/bs";
+import { FaLinkedin } from "react-icons/fa";
 import { SiOrcid, SiZotero, SiGooglescholar } from "react-icons/si";
 import { useTheme } from "../constants/ThemeContext"; // Import useTheme hook
 
@@ -11,21 +10,24 @@ const About = () => {
   const { theme } = useTheme(); // Access the theme from context
 
   return (
-    <div className={`${theme === "dark" ? "bg-gray-900 text-gray-200" : "bg-white text-gray-800"}`}>
+    <div
+      className={`${
+        theme === "dark" ? "bg-black text-white" : "bg-white text-black"
+      }`}
+    >
       {/* About Section */}
-      <div className="container px-4 py-12 mx-auto mb-10 lg:flex lg:gap-12 lg:items-start">
+      <div className="container px-4 py-12 mx-auto mt-10 mb-10 lg:flex lg:gap-12 lg:items-start">
         {/* Left Section: Profile, Name, Role, Social Icons */}
         <div className="flex flex-col items-center lg:w-1/3">
           {/* Profile Image */}
           <img
             src={profile}
-            alt="Ben Jarman"
+            alt="Paolo Sartorio"
             className="object-cover w-64 h-64 rounded-lg shadow-lg"
           />
 
           {/* Name and Role */}
-          <h1 className="mt-6 text-3xl font-bold text-center">Paolo Sartorio</h1>
-          <h2 className="text-lg text-center">About me and my work</h2>
+          <h2 className="mt-4 text-lg text-center">About me and my work</h2>
 
           {/* Social Media Icons */}
           <div className="flex flex-wrap justify-center gap-3 mt-6">
@@ -42,13 +44,6 @@ const About = () => {
             >
               <FaLinkedin size={18} />
               <span>LinkedIn</span>
-            </a>
-            <a
-              href="https://twitter.com"
-              className="flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
-            >
-              <BsTwitter size={18} />
-              <span>Bluesky</span>
             </a>
             <a
               href="https://orcid.org"
@@ -71,28 +66,42 @@ const About = () => {
               <SiGooglescholar size={18} />
               <span>Google Scholar</span>
             </a>
-            <a
-              href="https://github.com"
-              className="flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500"
-            >
-              <FaGithub size={18} />
-              <span>GitHub</span>
-            </a>
           </div>
         </div>
 
         {/* Right Section: Text Content */}
         <div className="mt-8 lg:w-2/3 lg:mt-0">
-          <p className="leading-relaxed">
-            I did not enter the legal field with criminal law in mind. I initially saw the legal system as a well-oiled machine that ensured only the guilty would be punished. However, my experiences soon revealed a more painful reality. Our criminal justice system, though not without merit, disproportionately targets vulnerable populations—those with limited resources who are often overrepresented behind bars and most in need of help. This systemic issue is not confined to the United States but is a global concern. It was this disparity that led me to seek change.
+          <p className="leading-relaxed text-justify">
+            I did not enter the legal field with criminal law in mind. I
+            initially saw the legal system as a well-oiled machine that ensured
+            only the guilty would be punished. However, my experiences soon
+            revealed a more painful reality. Our criminal justice system, though
+            not without merit, disproportionately targets vulnerable
+            populations—those with limited resources who are often
+            overrepresented behind bars and most in need of help. This systemic
+            issue is not confined to the United States but is a global concern.
+            It was this disparity that led me to seek change.
           </p>
 
-          <p className="mt-4 leading-relaxed">
-            My work is driven by the belief that justice should be focused not just on punishment but on human rights and second chances. We are more than the worst thing we have done, and how we treat the most derided individuals in our society is the truest reflection of who we are as a people. My goal is to contribute to a justice system that acknowledges human dignity and offers opportunities for redemption and rehabilitation.
+          <p className="mt-4 leading-relaxed text-justify">
+            My work is driven by the belief that justice should be focused not
+            just on punishment but on human rights and second chances. We are
+            more than the worst thing we have done, and how we treat the most
+            derided individuals in our society is the truest reflection of who
+            we are as a people. My goal is to contribute to a justice system
+            that acknowledges human dignity and offers opportunities for
+            redemption and rehabilitation.
           </p>
 
-          <p className="mt-4 leading-relaxed">
-            I am a visiting professor at IE University Law School in Spain, where I teach criminal law and human rights. I have also been teaching law and human rights at the University of Minnesota Law School since 2020. In 2023, I completed my doctorate in Law at the Universidad Carlos III de Madrid. My research focused on comparative studies of life sentence practices, particularly the reimplementation of life sentences in Spain and the U.S., and the human rights implications of such sentences.
+          <p className="mt-4 leading-relaxed text-justify">
+            I am a visiting professor at IE University Law School in Spain,
+            where I teach criminal law and human rights. I have also been
+            teaching law and human rights at the University of Minnesota Law
+            School since 2020. In 2023, I completed my doctorate in Law at the
+            Universidad Carlos III de Madrid. My research focused on comparative
+            studies of life sentence practices, particularly the
+            reimplementation of life sentences in Spain and the U.S., and the
+            human rights implications of such sentences.
           </p>
         </div>
       </div>
