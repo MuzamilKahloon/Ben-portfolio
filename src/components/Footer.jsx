@@ -12,7 +12,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-4 text-gray-400 bg-gray-800">
+    <footer className="py-4 text-gray-800 bg-gray-600">
       <div className="container flex flex-col items-center justify-between gap-4 px-4 mx-auto sm:flex-row">
         {/* Copyright */}
         <div className="text-center sm:text-left">

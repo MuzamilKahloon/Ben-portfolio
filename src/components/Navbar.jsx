@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+// src/components/Navbar.jsx
+
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { FiSearch, FiGlobe } from "react-icons/fi";
@@ -18,6 +20,9 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState(""); // Search query state
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
 
+  // Ref for detecting clicks outside the language menu
+  const languageMenuRef = useRef();
+
   // Function to toggle the mobile drawer
   const toggleNavbar = () => {
     setMobileDrawerOpen(!mobileDrawerOpen);
@@ -34,8 +39,25 @@ const Navbar = () => {
     setLanguageMenuOpen(false); // Close the language menu after selection
   };
 
+  // Close the language menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        languageMenuRef.current &&
+        !languageMenuRef.current.contains(event.target)
+      ) {
+        setLanguageMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <nav className="absolute top-0 left-0 z-50 w-full text-white bg-gray-800 shadow-md">
+    <nav className="fixed top-0 left-0 z-50 w-full text-white bg-gray-800 shadow-md">
       <div className="flex items-center justify-between px-6 py-3 mx-auto max-w-7xl">
         {/* Logo */}
         <div className="text-2xl font-bold">
@@ -60,19 +82,19 @@ const Navbar = () => {
 
         {/* Icons Section */}
         <div className="flex items-center space-x-6">
-          {/* Language Selector */}
+          {/* Language Selector (Desktop) */}
           {!searchOpen && (
-            <div className="relative hidden lg:block">
+            <div className="relative hidden lg:block" ref={languageMenuRef}>
               <button
                 onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
                 aria-label="Language Selector"
-                className="flex items-center px-3 py-2 space-x-2 bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none"
+                className="flex items-center px-3 py-2 space-x-2 bg-gray-500 rounded-md hover:bg-gray-600 focus:outline-none"
               >
                 <FiGlobe size={20} />
                 
               </button>
               {languageMenuOpen && (
-                <div className="absolute right-0 mt-2 text-black bg-white rounded shadow-lg">
+                <div className="absolute right-0 w-40 mt-2 text-black bg-white rounded-md shadow-lg">
                   <ul>
                     <li
                       className="px-4 py-2 cursor-pointer hover:bg-gray-100"
@@ -173,6 +195,50 @@ const Navbar = () => {
                 </Link>
               </li>
             ))}
+
+            {/* Language Selector (Mobile) */}
+            <li className="relative" ref={languageMenuRef}>
+              <button
+                onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
+                aria-label="Language Selector"
+                className="flex items-center px-3 py-2 space-x-2 bg-gray-500 rounded-md hover:bg-gray-600 focus:outline-none"
+              >
+                <FiGlobe size={20} />
+              </button>
+              {languageMenuOpen && (
+                <div className="absolute left-0 w-40 mt-2 text-black bg-white rounded-md shadow-lg">
+                  <ul>
+                    <li
+                      className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                      onClick={() => switchLanguage("en")}
+                    >
+                      English
+                    </li>
+                    <li
+                      className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                      onClick={() => switchLanguage("es")}
+                    >
+                      Spanish
+                    </li>
+                    <li
+                      className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                      onClick={() => switchLanguage("fr")}
+                    >
+                      French
+                    </li>
+                    <li
+                      className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                      onClick={() => switchLanguage("it")}
+                    >
+                      Italian
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </li>
+
+            {/* Theme Toggle Button (Mobile) */}
+            
           </ul>
         </div>
       )}
