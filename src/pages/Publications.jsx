@@ -28,7 +28,7 @@ const Publications = () => {
           <h1 className="mb-6 text-4xl font-bold">Publications</h1>
 
           <p className="mb-6 leading-relaxed text-justify">
-            Welcome to the Publications section, where you can explore a curated collection of my work in various domains, including comparative criminal law, human rights, and restorative justice. This platform highlights my contributions to advancing legal scholarship, promoting human dignity, and rethinking traditional approaches to justice systems.
+          This section highlights my academic publications, which explore critical issues in criminal justice, human rights, and punishment. Full texts of some works are available here, while others can be accessed through external links to open-access sources.
           </p>
 
           {/* Sorting Dropdown */}
