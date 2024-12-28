@@ -1,5 +1,5 @@
 import React from "react";
-import cv from "../../public/img/CV1.jpg"; // Use CV image as the background
+import img from "../../public/img/CV1.jpg"; // Use CV image as the background
 import { useTheme } from "../constants/ThemeContext";
 import Footer from "../components/Footer";
 
@@ -12,7 +12,7 @@ const Cv = () => {
         theme === "dark" ? "text-gray-200" : "text-gray-800"
       }`}
       style={{
-        backgroundImage: `url(${cv})`, // Set the CV image as the background
+        backgroundImage: `url(${img})`, // Set the CV image as the background
         backgroundAttachment: "fixed", // Ensure the background stays fixed during scroll
       }}
     >

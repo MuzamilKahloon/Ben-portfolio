@@ -59,7 +59,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-6 py-3 mx-auto max-w-7xl">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <Link to="/" className="transition hover:text-teal-400">
+          <Link to="/about" className="transition hover:text-teal-400">
             <span className="font-light">Paolo</span>{" "}
             <span className="font-bold">Sartorio</span>
           </Link>
@@ -68,7 +68,7 @@ const Navbar = () => {
         {/* Desktop Navigation Links */}
         {!searchOpen && (
           <ul className="hidden space-x-8 lg:flex">
-            {[ "about", "research", "publications", "cv"].map((key) => (
+            {["about", "research", "publications", "cv"].map((key) => (
               <li key={key}>
                 <Link to={`/${key}`} className="transition hover:text-teal-400">
                   {capitalizeFirstLetter(t(key))} {/* Capitalize translation */}
@@ -89,7 +89,6 @@ const Navbar = () => {
                 className="flex items-center px-3 py-2 space-x-2 bg-gray-500 rounded-md hover:bg-gray-600 focus:outline-none"
               >
                 <FiGlobe size={20} />
-                
               </button>
               {languageMenuOpen && (
                 <div className="absolute right-0 w-40 mt-2 text-black bg-white rounded-md shadow-lg">
@@ -182,7 +181,7 @@ const Navbar = () => {
       {mobileDrawerOpen && !searchOpen && (
         <div className="absolute left-0 w-full text-white bg-gray-800 lg:hidden top-full">
           <ul className="flex flex-col items-center p-4 space-y-4">
-            {["home", "about", "research", "publications", "cv"].map((key) => (
+            {["about", "research", "publications", "cv"].map((key) => (
               <li key={key}>
                 <Link
                   to={`/${key}`}
@@ -234,9 +233,6 @@ const Navbar = () => {
                 </div>
               )}
             </li>
-
-            {/* Theme Toggle Button (Mobile) */}
-            
           </ul>
         </div>
       )}
