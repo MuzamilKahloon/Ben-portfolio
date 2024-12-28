@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Footer from "../components/Footer";
-import { publications, publicationCategories } from "../constants";
+import { publications } from "../constants";
 import { useTheme } from "../constants/ThemeContext";
 
 const Publications = () => {
@@ -28,7 +28,10 @@ const Publications = () => {
           <h1 className="mb-6 text-4xl font-bold">Publications</h1>
 
           <p className="mb-6 leading-relaxed text-justify">
-          This section highlights my academic publications, which explore critical issues in criminal justice, human rights, and punishment. Full texts of some works are available here, while others can be accessed through external links to open-access sources.
+            This section highlights my academic publications, which explore
+            critical issues in criminal justice, human rights, and punishment.
+            Full texts of some works are available here, while others can be
+            accessed through external links to open-access sources.
           </p>
 
           {/* Sorting Dropdown */}
@@ -57,7 +60,9 @@ const Publications = () => {
               }`}
             >
               <thead>
-                <tr className={theme === "dark" ? "bg-gray-700" : "bg-gray-200"}>
+                <tr
+                  className={theme === "dark" ? "bg-gray-700" : "bg-gray-200"}
+                >
                   <th className="p-2 text-left border">Date</th>
                   <th className="p-2 text-left border">Title</th>
                   <th className="p-2 text-left border">Subtitle</th>
@@ -97,29 +102,6 @@ const Publications = () => {
             </table>
           </div>
         </div>
-
-        {/* Sidebar (30%) */}
-        <aside className="w-full md:w-1/3">
-          <div
-            className={`p-4 border rounded-lg shadow-sm ${
-              theme === "dark"
-                ? "bg-black border-gray-700 text-white"
-                : "bg-white border-gray-200 text-black"
-            }`}
-          >
-            <h3 className="mb-4 text-lg font-semibold">Categories</h3>
-            <ul className="space-y-2">
-              {publicationCategories.map((category) => (
-                <li
-                  key={category.id}
-                  className="cursor-pointer hover:text-teal-500"
-                >
-                  {category.name} ({category.count})
-                </li>
-              ))}
-            </ul>
-          </div>
-        </aside>
       </div>
 
       {/* Footer */}

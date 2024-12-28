@@ -1,26 +1,27 @@
-// src/components/Footer.jsx
-
 import React from "react";
-import { FaGithub } from "react-icons/fa"; // GitHub icon
-import { FiAlertCircle } from "react-icons/fi"; // Report icon
-import { Link } from "react-router-dom"; // Import Link for routing
 import { useTranslation } from "react-i18next"; // Import the translation hook
-import paolo from '../resume/paolo.pdf'; // Import the PDF file
+import paolo from "../resume/paolo.pdf"; // Import the Terms and Conditions PDF file
+import policy from "../resume/policy.pdf"; // Import the Privacy Policy PDF file
 
 const Footer = () => {
   const { t } = useTranslation(); // Initialize the translation hook
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-4 text-gray-800 bg-gray-600">
+    <footer style={{ backgroundColor: "#303030" }} className="py-4 text-white">
       <div className="container flex flex-col items-center justify-between gap-4 px-4 mx-auto sm:flex-row">
         {/* Copyright */}
         <div className="text-center sm:text-left">
           <p className="text-sm">
             © {currentYear} Paolo Sartorio |{" "}
-            <Link to="/privacy-policy" className="hover:text-teal-400">
+            <a
+              href={policy}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-teal-400"
+            >
               {t("footer.privacy_policy", "Privacy Policy")}
-            </Link>{" "}
+            </a>{" "}
             |{" "}
             <a
               href={paolo}
@@ -30,32 +31,16 @@ const Footer = () => {
             >
               {t("footer.terms_conditions", "Terms & Conditions")}
             </a>{" "}
-            | {t("footer.all_rights", "All Rights Reserved.")}
+            |{" "}
+            <a
+              href="https://github.com/your-repo" // Replace with your GitHub repo URL
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-teal-400"
+            >
+              {t("footer.all_rights", "All Rights Reserved.")}
+            </a>
           </p>
-        </div>
-
-        {/* Links Section */}
-        <div className="flex space-x-6">
-          <a
-            href="https://github.com/your-repo" // Replace with your GitHub repo URL
-            className="flex items-center space-x-1 text-sm transition hover:text-teal-400"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub Repository"
-          >
-            <FaGithub size={16} />
-            <span>{t("footer.view_source", "View Source")}</span>
-          </a>
-          <a
-            href="https://example.com/report" // Replace with your issue reporting URL
-            className="flex items-center space-x-1 text-sm transition hover:text-teal-400"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Report an Issue"
-          >
-            <FiAlertCircle size={16} />
-            <span>{t("footer.report_issue", "Report an Issue")}</span>
-          </a>
         </div>
       </div>
     </footer>

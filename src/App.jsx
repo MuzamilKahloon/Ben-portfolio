@@ -19,10 +19,10 @@ const App = () => {
         <Navbar />
         <Routes>
           {/* Home Route */}
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} /> */}
 
           {/* Redirect '/home' to '/' */}
-          <Route path="/home" element={<Navigate to="/" replace />} />
+          <Route path="/" element={<Navigate to="/" replace />} />
 
           {/* Other Routes */}
           <Route path="/about" element={<About />} />

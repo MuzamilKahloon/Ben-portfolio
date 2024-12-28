@@ -1,5 +1,3 @@
-// src/components/Navbar.jsx
-
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Sun, Moon } from "lucide-react";
@@ -57,7 +55,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full text-white bg-gray-800 shadow-md">
+    <nav className="absolute top-0 left-0 z-50 w-full text-white bg-gray-600 shadow-md">
       <div className="flex items-center justify-between px-6 py-3 mx-auto max-w-7xl">
         {/* Logo */}
         <div className="text-2xl font-bold">
@@ -70,7 +68,7 @@ const Navbar = () => {
         {/* Desktop Navigation Links */}
         {!searchOpen && (
           <ul className="hidden space-x-8 lg:flex">
-            {["home", "about", "research", "publications", "cv"].map((key) => (
+            {[ "about", "research", "publications", "cv"].map((key) => (
               <li key={key}>
                 <Link to={`/${key}`} className="transition hover:text-teal-400">
                   {capitalizeFirstLetter(t(key))} {/* Capitalize translation */}
