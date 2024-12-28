@@ -17,11 +17,13 @@ const App = () => {
         {/* Navbar always rendered */}
         <Navbar />
         <Routes>
-          {/* Redirect '/' to '/about' as default */}
-          <Route path="/" element={<Navigate to="/about" replace />} />
+          {/* Render About directly on the root route */}
+          <Route path="/" element={<About />} />
+
+          {/* Redirect '/about' to '/' */}
+          <Route path="/about" element={<Navigate to="/" replace />} />
 
           {/* Other Routes */}
-          <Route path="/about" element={<About />} />
           <Route path="/research" element={<Research />} />
           <Route path="/publications" element={<Publications />} />
           <Route path="/cv" element={<CV />} />
