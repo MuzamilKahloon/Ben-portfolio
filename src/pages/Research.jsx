@@ -17,13 +17,6 @@ const Research = () => {
         className="relative flex-grow h-full px-6 py-12 mt-10 bg-center bg-cover"
         style={{ backgroundImage: `url(${research})` }}
       >
-        {/* Overlay Layer */}
-        <div
-          className={`absolute inset-0 ${
-            theme === "dark" ? "bg-black bg-opacity-50" : "bg-white bg-opacity-50"
-          }`}
-        ></div>
-
         {/* Text Content */}
         <div
           className={`relative max-w-4xl p-6 mx-auto rounded-lg shadow-lg ${
