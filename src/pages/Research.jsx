@@ -21,7 +21,7 @@ const Research = () => {
         <div
           className={`relative max-w-4xl p-6 mx-auto rounded-lg shadow-lg ${
             theme === "dark"
-              ? "bg-gray-900 bg-opacity-75 text-gray-200"
+              ? "bg-gray-800 bg-opacity-75 text-gray-200"
               : "bg-gray-100 bg-opacity-75 text-gray-800"
           }`}
         >

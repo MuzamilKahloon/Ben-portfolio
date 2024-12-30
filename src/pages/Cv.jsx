@@ -38,7 +38,7 @@ const Cv = () => {
       <div
         className={`max-w-3xl p-8 mx-auto mb-12 rounded-xl shadow-md ${
           theme === "dark"
-            ? "bg-gray-900 text-gray-200 border border-gray-700"
+            ? "bg-black text-gray-200 border border-gray-700"
             : "bg-white text-gray-800 border border-gray-300"
         }`}
       >
