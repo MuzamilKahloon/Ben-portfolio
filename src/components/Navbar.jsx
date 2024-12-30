@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { FiSearch, FiGlobe } from "react-icons/fi";
 import { useTheme } from "../constants/ThemeContext";
+import { useTranslation } from "react-i18next"; // Import useTranslation
 
 // Utility function to capitalize the first letter
 const capitalizeFirstLetter = (string) => {
@@ -11,6 +12,7 @@ const capitalizeFirstLetter = (string) => {
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
+  const { t, i18n } = useTranslation(); // Initialize translation hook
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState(""); // Search query state
@@ -48,6 +50,12 @@ const Navbar = () => {
     };
   }, []);
 
+  // Change language function
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+    setLanguageMenuOpen(false);
+  };
+
   return (
     <nav className="absolute top-0 left-0 z-50 w-full text-white bg-gray-600 shadow-md">
       <div className="flex items-center justify-between px-6 py-3 mx-auto max-w-7xl">
@@ -68,7 +76,7 @@ const Navbar = () => {
                   to={`/${key === "home" ? "" : key}`}
                   className="transition hover:text-teal-400"
                 >
-                  {capitalizeFirstLetter(key)}
+                  {capitalizeFirstLetter(t(key))} {/* Translate navigation links */}
                 </Link>
               </li>
             ))}
@@ -86,43 +94,32 @@ const Navbar = () => {
                 className="flex items-center px-3 py-2 space-x-2 bg-gray-500 rounded-md hover:bg-gray-600 focus:outline-none"
               >
                 <FiGlobe size={20} />
+                
               </button>
               {languageMenuOpen && (
                 <div className="absolute right-0 mt-2 text-black bg-white rounded-md shadow-lg">
                   <ul>
                     <li
                       className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                      onClick={() => {
-                        setLanguageMenuOpen(false);
-                        console.log("Switch to English");
-                      }}
+                      onClick={() => changeLanguage("en")}
                     >
                       English
                     </li>
                     <li
                       className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                      onClick={() => {
-                        setLanguageMenuOpen(false);
-                        console.log("Switch to Spanish");
-                      }}
+                      onClick={() => changeLanguage("es")}
                     >
                       Spanish
                     </li>
                     <li
                       className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                      onClick={() => {
-                        setLanguageMenuOpen(false);
-                        console.log("Switch to French");
-                      }}
+                      onClick={() => changeLanguage("fr")}
                     >
                       French
                     </li>
                     <li
                       className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                      onClick={() => {
-                        setLanguageMenuOpen(false);
-                        console.log("Switch to Italian");
-                      }}
+                      onClick={() => changeLanguage("it")}
                     >
                       Italian
                     </li>
@@ -149,7 +146,7 @@ const Navbar = () => {
               <div className="flex items-center justify-between w-full">
                 <input
                   type="text"
-                  placeholder="Search..."
+                  placeholder={t("search")} // Translate "Search"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full px-4 py-2 text-black bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-teal-300"
@@ -185,25 +182,6 @@ const Navbar = () => {
           )}
         </div>
       </div>
-
-      {/* Mobile Drawer */}
-      {mobileDrawerOpen && !searchOpen && (
-        <div className="absolute left-0 w-full text-white bg-gray-800 lg:hidden top-full">
-          <ul className="flex flex-col items-center p-4 space-y-4">
-            {["home", "about", "research", "publications", "cv"].map((key) => (
-              <li key={key}>
-                <Link
-                  to={`/${key === "home" ? "" : key}`}
-                  onClick={toggleNavbar} // Close drawer on link click
-                  className="transition hover:text-teal-400"
-                >
-                  {capitalizeFirstLetter(key)}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </nav>
   );
 };
