@@ -1,9 +1,7 @@
 // Home.js
 import React from 'react';
-import { Link } from 'react-router-dom';
 import img from '../../public/img/about1.jpg';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer'
 import { useTheme } from '../constants/ThemeContext';
 import { FiMail } from 'react-icons/fi';
 import { FaLinkedin } from 'react-icons/fa';
@@ -14,7 +12,7 @@ const Home = () => {
 
   return (
     <div className={theme === 'dark' ? 'bg-black text-gray-200' : 'bg-gray-100 text-gray-800'}>
-      <Navbar />
+      
 
       {/* Main Content */}
       <main className="flex flex-col items-center justify-center min-h-screen px-6 py-12 mt-16">
@@ -82,8 +80,7 @@ const Home = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <Footer />
+      <Footer/>
     </div>
   );
 };

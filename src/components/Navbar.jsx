@@ -70,10 +70,10 @@ const Navbar = () => {
         {/* Desktop Navigation Links */}
         {!searchOpen && (
           <ul className="hidden space-x-8 lg:flex">
-            {["home", "about", "research", "publications", "cv"].map((key) => (
+            {["about", "research", "publications", "cv"].map((key) => (
               <li key={key}>
                 <Link
-                  to={`/${key === "home" ? "" : key}`}
+                  to={`/${key}`}
                   className="transition hover:text-teal-400"
                 >
                   {capitalizeFirstLetter(t(key))} {/* Translate navigation links */}
@@ -94,7 +94,6 @@ const Navbar = () => {
                 className="flex items-center px-3 py-2 space-x-2 bg-gray-500 rounded-md hover:bg-gray-600 focus:outline-none"
               >
                 <FiGlobe size={20} />
-                
               </button>
               {languageMenuOpen && (
                 <div className="absolute right-0 mt-2 text-black bg-white rounded-md shadow-lg">

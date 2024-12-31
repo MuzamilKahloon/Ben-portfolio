@@ -1,9 +1,8 @@
-// App.js
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./constants/ThemeContext";
-import Homepage from "./pages/Home.jsx";
+import Home from "./pages/Home"; // Import Home component
 import About from "./pages/About";
 import Research from "./pages/Research";
 import Publications from "./pages/Publications";
@@ -15,8 +14,8 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
-          {/* Set Homepage as default */}
-          <Route path="/" element={<Homepage />} />
+          {/* Set Home as default */}
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/research" element={<Research />} />
           <Route path="/publications" element={<Publications />} />
