@@ -24,7 +24,7 @@ const Home = () => {
         {/* Content Section */}
         <div className="max-w-3xl text-center">
           <h1 className="mb-6 text-4xl font-bold">Welcome</h1>
-          <p className="mb-6 text-xl font-bold">
+          <p className="mb-6 text-xl">
             Experience Matters: A Commitment to Justice and Human Rights
           </p>
           <p className="mb-6 text-lg">
