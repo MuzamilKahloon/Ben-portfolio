@@ -12,18 +12,15 @@ const About = () => {
 
   return (
     <div
-      className={`${
-        theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-      }`} 
+      className="text-white bg-black" // Ensure text is white and background is black
       style={{
         backgroundImage: `url(${lady})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        filter: theme === "dark" ? "brightness(0.7)" : "brightness(0.9)",
       }}
     >
       {/* Overlay */}
-      <div className={theme === "dark" ? "bg-black bg-opacity-80" : "bg-white bg-opacity-70"}>
+      <div className="bg-black bg-opacity-80">
         {/* About Section */}
         <div className="container px-4 py-12 mx-auto mt-10 mb-10 lg:flex lg:gap-12 lg:items-start">
           {/* Left Section: Profile, Name, Role, Social Icons */}
@@ -31,46 +28,46 @@ const About = () => {
             {/* Profile Image */}
             <img
               src={profile}
-              alt="Paolo Sartorio"
+              alt="Profile"
               className="object-cover w-64 h-64 rounded-lg shadow-lg"
             />
 
             {/* Name and Role */}
-            <h2 className={`mt-4 text-lg text-center ${theme === "dark" ? "text-white" : "text-black"}`}>About me and my work</h2>
+            <h2 className="mt-4 text-lg text-center text-white">About me and my work</h2>
 
             {/* Social Media Icons */}
             <div className="flex flex-wrap justify-center gap-3 mt-6">
               <a
                 href="mailto:example@example.com"
-                className={`flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500 ${theme === "dark" ? "text-white border-white" : "text-black border-black"}`}
+                className="flex items-center px-3 py-2 space-x-1 text-white transition border border-white rounded-md hover:text-teal-500 hover:border-teal-500"
               >
                 <FiMail size={18} />
                 <span>Email</span>
               </a>
               <a
                 href="https://linkedin.com"
-                className={`flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500 ${theme === "dark" ? "text-white border-white" : "text-black border-black"}`}
+                className="flex items-center px-3 py-2 space-x-1 text-white transition border border-white rounded-md hover:text-teal-500 hover:border-teal-500"
               >
                 <FaLinkedin size={18} />
                 <span>LinkedIn</span>
               </a>
               <a
                 href="https://orcid.org"
-                className={`flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500 ${theme === "dark" ? "text-white border-white" : "text-black border-black"}`}
+                className="flex items-center px-3 py-2 space-x-1 text-white transition border border-white rounded-md hover:text-teal-500 hover:border-teal-500"
               >
                 <SiOrcid size={18} />
                 <span>ORCiD</span>
               </a>
               <a
                 href="https://zotero.org"
-                className={`flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500 ${theme === "dark" ? "text-white border-white" : "text-black border-black"}`}
+                className="flex items-center px-3 py-2 space-x-1 text-white transition border border-white rounded-md hover:text-teal-500 hover:border-teal-500"
               >
                 <SiZotero size={18} />
                 <span>Zotero</span>
               </a>
               <a
                 href="https://scholar.google.com"
-                className={`flex items-center px-3 py-2 space-x-1 transition border rounded-md hover:text-teal-500 hover:border-teal-500 ${theme === "dark" ? "text-white border-white" : "text-black border-black"}`}
+                className="flex items-center px-3 py-2 space-x-1 text-white transition border border-white rounded-md hover:text-teal-500 hover:border-teal-500"
               >
                 <SiGooglescholar size={18} />
                 <span>Google Scholar</span>
@@ -80,7 +77,7 @@ const About = () => {
 
           {/* Right Section: Text Content */}
           <div className="mt-8 lg:w-2/3 lg:mt-0">
-            <p className={`leading-relaxed text-justify ${theme === "dark" ? "text-white" : "text-black"}`}>
+            <p className="leading-relaxed text-justify text-white">
               I did not enter the legal field with criminal law in mind. I
               initially saw the legal system as a well-oiled machine that ensured
               only the guilty would be punished. However, my experiences soon
@@ -92,7 +89,7 @@ const About = () => {
               It was this disparity that led me to seek change.
             </p>
 
-            <p className={`mt-4 leading-relaxed text-justify ${theme === "dark" ? "text-white" : "text-black"}`}>
+            <p className="mt-4 leading-relaxed text-justify text-white">
               My work is driven by the belief that justice should be focused not
               just on punishment but on human rights and second chances. We are
               more than the worst thing we have done, and how we treat the most
@@ -102,7 +99,7 @@ const About = () => {
               redemption and rehabilitation.
             </p>
 
-            <p className={`mt-4 leading-relaxed text-justify ${theme === "dark" ? "text-white" : "text-black"}`}>
+            <p className="mt-4 leading-relaxed text-justify text-white">
               I am a visiting professor at IE University Law School in Spain,
               where I teach criminal law and human rights. I have also been
               teaching law and human rights at the University of Minnesota Law
