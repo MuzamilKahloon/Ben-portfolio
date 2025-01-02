@@ -31,8 +31,8 @@ const Publications = () => {
 
       {/* Header Content */}
       <div className="relative z-10 px-4 py-16 text-center text-white">
-        <h1 className="text-5xl font-extrabold">Publications</h1>
-        <p className="max-w-3xl mx-auto mt-4 text-lg font-medium">
+        <h1 className="mt-4 text-4xl font-bold">Publications</h1>
+        <p className="max-w-3xl mx-auto mt-4 text-lg font-normal">
           This section highlights my academic publications, which explore
           critical issues in criminal justice, human rights, and punishment.
           Full texts of some works are available here, while others can be

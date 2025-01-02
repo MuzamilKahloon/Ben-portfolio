@@ -27,13 +27,13 @@ const Home = () => {
           <p className="mb-6 text-xl font-bold">
             Experience Matters: A Commitment to Justice and Human Rights
           </p>
-          <p className="mb-6 text-lg font-medium">
+          <p className="mb-6 text-lg">
             With over 15 years of experience as a criminal defense attorney, 5 years as a law professor, and a growing focus on comparative criminal law and human rights, I bring a unique perspective to the pursuit of justice. My professional journey has shaped my research, which seeks to bridge the gap between theory and practice, creating impactful solutions for real-world legal challenges.
           </p>
-          <p className="mb-6 text-lg font-medium">
+          <p className="mb-6 text-lg">
             I believe that justice is not an abstract concept—it is a vital force that affects every individual, every community, and every nation. As Martin Luther King Jr. famously wrote, "Injustice anywhere is a threat to justice everywhere." This guiding principle fuels my work and my commitment to advocating for human rights, both in the courtroom and through my academic research.
           </p>
-          <p className="text-lg font-medium">
+          <p className="text-lg ">
             Explore my website to learn more about my work, my research on comparative criminal law, and my efforts to promote justice on a global scale.
           </p>
         </div>
