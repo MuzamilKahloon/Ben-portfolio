@@ -19,7 +19,7 @@ const Home = () => {
         </div>
 
         {/* Content Section */}
-        <div className="max-w-3xl text-center">
+        <div className="max-w-3xl mb-10 text-center">
           <h1 className="mb-6 text-3xl font-bold">Welcome</h1>
           <p className="mb-6 text-lg leading-relaxed">
             Experience Matters: A Commitment to Justice and Human Rights
@@ -42,7 +42,7 @@ const Home = () => {
           </p>
         </div>
 
-        {/* Contact and Social Media Icons */}
+        {/* Contact and Social Media Icons
         <div className="mt-12">
           <div className="flex flex-wrap justify-center gap-6 pb-6 border-b border-gray-400">
             <a
@@ -91,7 +91,7 @@ const Home = () => {
               <span>Google Scholar</span>
             </a>
           </div>
-        </div>
+        </div> */}
       </main>
 
       <Footer />

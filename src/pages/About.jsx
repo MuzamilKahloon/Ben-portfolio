@@ -36,41 +36,41 @@ const About = () => {
             <h2 className="mt-4 text-lg text-center text-white">About me and my work</h2>
 
             {/* Social Media Icons */}
-            <div className="flex flex-wrap justify-center gap-3 mt-6">
+            <div className="flex flex-wrap justify-center gap-3 mt-12">
               <a
                 href="mailto:example@example.com"
                 className="flex items-center px-3 py-2 space-x-1 text-white transition border border-white rounded-md hover:text-teal-500 hover:border-teal-500"
               >
                 <FiMail size={18} />
-                <span>Email</span>
+                {/* <span>Email</span> */}
               </a>
               <a
                 href="https://linkedin.com"
                 className="flex items-center px-3 py-2 space-x-1 text-white transition border border-white rounded-md hover:text-teal-500 hover:border-teal-500"
               >
                 <FaLinkedin size={18} />
-                <span>LinkedIn</span>
+                {/* <span>LinkedIn</span> */}
               </a>
               <a
                 href="https://orcid.org"
                 className="flex items-center px-3 py-2 space-x-1 text-white transition border border-white rounded-md hover:text-teal-500 hover:border-teal-500"
               >
                 <SiOrcid size={18} />
-                <span>ORCiD</span>
+                {/* <span>ORCiD</span> */}
               </a>
               <a
                 href="https://zotero.org"
                 className="flex items-center px-3 py-2 space-x-1 text-white transition border border-white rounded-md hover:text-teal-500 hover:border-teal-500"
               >
                 <SiZotero size={18} />
-                <span>Zotero</span>
+                {/* <span>Zotero</span> */}
               </a>
               <a
                 href="https://scholar.google.com"
                 className="flex items-center px-3 py-2 space-x-1 text-white transition border border-white rounded-md hover:text-teal-500 hover:border-teal-500"
               >
                 <SiGooglescholar size={18} />
-                <span>Google Scholar</span>
+                {/* <span>Google Scholar</span> */}
               </a>
             </div>
           </div>
